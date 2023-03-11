@@ -26,11 +26,13 @@ model Employee {
   id Int @id @default(autoincrement())
   fullName String
   organization String
-  department String
+  departmentId Int
+  department Department @relation(fields: [departmentId], references: [id])
   position String
   email String @unique
   phone String
-  role Int
+  roleId Int
+  role Role @relation(fields: [roleId], references: [id])
   photo String
   userId Int  @unique
   user User? @relation(fields: [userId], references: [id])
@@ -38,4 +40,40 @@ model Employee {
   updatedAt DateTime @updatedAt
 
   @@map("employees")
+}
+
+model Department {
+  id Int @id @default(autoincrement())
+  name String @unique
+  nameuz String?
+  nameru String?
+  subdepartment SubDepartment[]
+  employee Employee[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("departments")
+}
+
+model SubDepartment {
+  id Int @id @default(autoincrement())
+  name String @unique
+  nameuz String?
+  nameru String?
+  departmentId Int 
+  department Department @relation(fields: [departmentId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("subDepartments")
+}
+
+model Role {
+  id Int @id @default(autoincrement())
+  name String @unique
+  employee Employee[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("roles")
 }

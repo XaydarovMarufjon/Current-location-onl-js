@@ -3,11 +3,20 @@ import { APP_GUARD } from '@nestjs/core';
 import { AuthModule } from './auth/auth.module';
 import { AtGuard } from './common/guards';
 import { PrismaModule } from './prisma/prisma.module';
-import { EmployeeModule } from './resources/employee/employee.module';
+import { DepartmentModule } from './resources/department/department.module';
+import { RoleModule } from './resources/role/role.module';
+import { SubdepartmentModule } from './resources/subdepartment/subdepartment.module';
 import { TestModule } from './resources/test/test.module';
 
 @Module({
-  imports: [AuthModule, PrismaModule, EmployeeModule, TestModule],
+  imports: [
+    AuthModule, 
+    PrismaModule, 
+    TestModule,
+    DepartmentModule,
+    SubdepartmentModule,
+    RoleModule
+  ],
   controllers: [],
   providers: [
     {

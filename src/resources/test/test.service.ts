@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { AuthService } from 'src/auth/auth.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateTestDto } from './dto/create-test.dto';
 import { UpdateTestDto } from './dto/update-test.dto';
@@ -25,31 +24,17 @@ export class TestService {
         data: {
             fullName: createTestDto.fullName,
             organization: createTestDto.organization,
-            department: createTestDto.department,
+            departmentId: createTestDto.department,
             position: createTestDto.position,
             email: createTestDto.email,
             phone: createTestDto.phone,
-            role: createTestDto.role,
+            roleId: createTestDto.role,
             photo: createTestDto.photo,
             userId: user.id 
         }
       })
       return employee
     })
-
-  //   const newEmployee = await this.prisma.employee.create({
-  //     data: {
-  //         fullName: createTestDto.fullName,
-  //         organization: createTestDto.organization,
-  //         department: createTestDto.department,
-  //         position: createTestDto.position,
-  //         email: createTestDto.email,
-  //         phone: createTestDto.phone,
-  //         role: createTestDto.role,
-  //         photo: createTestDto.photo,
-  //         userId: 1 
-  //     }
-  // });
     return result;
   }
 

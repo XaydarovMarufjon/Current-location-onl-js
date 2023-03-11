@@ -1,5 +1,5 @@
 import { Field } from '@nestjs/graphql';
-import {IsEmail, IsNotEmpty,IsString } from 'class-validator';
+import {IsEmail, IsNotEmpty,IsNumber,IsString } from 'class-validator';
 
 export class CreateTestDto {
     @IsNotEmpty()
@@ -13,9 +13,9 @@ export class CreateTestDto {
     organization: string;
   
     @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @Field()
-    department: string;
+    department: number;
   
     @IsNotEmpty()
     @IsString()
@@ -32,6 +32,7 @@ export class CreateTestDto {
     phone: string;
   
     @Field()
+    @IsNumber()
     role: number;
   
     @IsString()
@@ -39,6 +40,7 @@ export class CreateTestDto {
     photo: string;
   
     @IsNotEmpty()
+    @IsNumber()
     @Field()
     userId: number;
   
