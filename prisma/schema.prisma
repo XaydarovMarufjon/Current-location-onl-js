@@ -77,3 +77,12 @@ model Role {
 
   @@map("roles")
 }
+
+model Position {
+  id Int @id @default(autoincrement())
+  name String @unique
+  nameuz String?
+  nameru String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

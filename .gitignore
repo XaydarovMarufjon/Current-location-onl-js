@@ -1,9 +1,11 @@
 # compiled output
 /dist
 /node_modules
+/src/prisma/*
 
 # config
 /.env
+/.docker-compose.yml
 
 # Logs
 logs
