@@ -19,12 +19,15 @@ export class CreateListOrgDto {
     @Field()
     nameru: string;
 
+    @IsString()
     @Field()
-    creatorId?: number;
+    creatorId?: string;
 
+    @IsString()
     @Field()
-    editorId?: number;
+    editorId?: string;
 
+    @IsString()
     @Field()
-    removerId?: number | null;
+    removerId?: string;
 }

@@ -40,7 +40,7 @@ export class AuthService {
         return tokens
     }
 
-    async logout(userId: number) {
+    async logout(userId: string) {
         await this.prisma.user.updateMany({
             where: {
                 id: userId,
@@ -54,7 +54,7 @@ export class AuthService {
         })
     }
 
-    async refreshTokens(userId: number, rt: string) {
+    async refreshTokens(userId: string, rt: string) {
         const user = await this.prisma.user.findUnique({
             where: {
                 id: userId
@@ -70,7 +70,7 @@ export class AuthService {
         return tokens
     }
 
-    async updateRtHash(userId: number, rt: string) {
+    async updateRtHash(userId: string, rt: string) {
         const hashedRt = await this.hashData(rt);
         await this.prisma.user.update({
             where: {
@@ -86,7 +86,7 @@ export class AuthService {
         return bcrypt.hash(data,10)
     }
 
-    async getTokens(userId: number, username: string): Promise<Tokens> {
+    async getTokens(userId: string, username: string): Promise<Tokens> {
         const [at,rt] = await Promise.all([
             this.jwtService.signAsync(
                 {
@@ -95,7 +95,7 @@ export class AuthService {
                 },
                 {
                     secret: 'monitoring-at-secret',
-                    expiresIn: 60 * 15 // 15 min
+                    expiresIn: 60 * 30 // 30 min
                 }
             ),
             this.jwtService.signAsync(

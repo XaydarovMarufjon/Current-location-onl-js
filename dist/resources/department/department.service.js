@@ -21,7 +21,8 @@ let DepartmentService = class DepartmentService {
             data: {
                 name: createDepartmentDto.name,
                 nameuz: createDepartmentDto.nameuz,
-                nameru: createDepartmentDto.nameru
+                nameru: createDepartmentDto.nameru,
+                listOrgId: createDepartmentDto.listOrgId
             }
         });
         return department;

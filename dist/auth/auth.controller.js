@@ -59,7 +59,7 @@ __decorate([
     (0, common_1.HttpCode)(common_1.HttpStatus.OK),
     __param(0, (0, decorators_1.GetCurrentUserId)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "logout", null);
 __decorate([
@@ -70,7 +70,7 @@ __decorate([
     __param(0, (0, decorators_1.GetCurrentUserId)()),
     __param(1, (0, decorators_1.GetCurrentUser)('refreshToken')),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Number, String]),
+    __metadata("design:paramtypes", [String, String]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "refreshTokens", null);
 AuthController = __decorate([

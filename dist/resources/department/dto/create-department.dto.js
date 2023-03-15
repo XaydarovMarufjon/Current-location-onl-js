@@ -30,5 +30,10 @@ __decorate([
     (0, graphql_1.Field)(),
     __metadata("design:type", String)
 ], CreateDepartmentDto.prototype, "nameru", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    (0, graphql_1.Field)(),
+    __metadata("design:type", String)
+], CreateDepartmentDto.prototype, "listOrgId", void 0);
 exports.CreateDepartmentDto = CreateDepartmentDto;
 //# sourceMappingURL=create-department.dto.js.map

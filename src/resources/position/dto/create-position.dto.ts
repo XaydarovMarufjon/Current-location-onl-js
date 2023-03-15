@@ -15,4 +15,9 @@ export class CreatePositionDto {
     @IsString()
     @Field()
     nameru: string;
+
+    @IsNotEmpty()
+    @IsString()
+    @Field()
+    listOrgId: string
 }

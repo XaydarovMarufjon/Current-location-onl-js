@@ -31,9 +31,9 @@ __decorate([
     __metadata("design:type", String)
 ], CreateSubdepartmentDto.prototype, "nameru", void 0);
 __decorate([
-    (0, class_validator_1.IsNumber)(),
+    (0, class_validator_1.IsString)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateSubdepartmentDto.prototype, "departmentId", void 0);
 exports.CreateSubdepartmentDto = CreateSubdepartmentDto;
 //# sourceMappingURL=create-subdepartment.dto.js.map

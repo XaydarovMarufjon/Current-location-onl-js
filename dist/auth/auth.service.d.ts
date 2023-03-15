@@ -8,9 +8,9 @@ export declare class AuthService {
     constructor(prisma: PrismaService, jwtService: JwtService);
     signup(dto: AuthDto): Promise<any>;
     signin(dto: AuthDto): Promise<Tokens>;
-    logout(userId: number): Promise<void>;
-    refreshTokens(userId: number, rt: string): Promise<Tokens>;
-    updateRtHash(userId: number, rt: string): Promise<void>;
+    logout(userId: string): Promise<void>;
+    refreshTokens(userId: string, rt: string): Promise<Tokens>;
+    updateRtHash(userId: string, rt: string): Promise<void>;
     hashData(data: string): Promise<string>;
-    getTokens(userId: number, username: string): Promise<Tokens>;
+    getTokens(userId: string, username: string): Promise<Tokens>;
 }

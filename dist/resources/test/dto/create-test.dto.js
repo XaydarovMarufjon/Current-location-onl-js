@@ -30,7 +30,7 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsNumber)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateTestDto.prototype, "department", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),
@@ -52,7 +52,7 @@ __decorate([
 __decorate([
     (0, graphql_1.Field)(),
     (0, class_validator_1.IsNumber)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateTestDto.prototype, "role", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
@@ -63,7 +63,7 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)(),
     (0, class_validator_1.IsNumber)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateTestDto.prototype, "userId", void 0);
 __decorate([
     (0, class_validator_1.IsNotEmpty)(),

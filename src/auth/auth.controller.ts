@@ -26,7 +26,7 @@ export class AuthController {
     @UseGuards(AtGuard)
     @Post('/logout')
     @HttpCode(HttpStatus.OK)
-    logout(@GetCurrentUserId() userId:number) {
+    logout(@GetCurrentUserId() userId:string) {
         return this.authService.logout(userId)
     }
 
@@ -34,7 +34,7 @@ export class AuthController {
     @UseGuards(RtGuard)
     @Post('/refresh')
     @HttpCode(HttpStatus.OK)
-    refreshTokens(@GetCurrentUserId() userId:number,
+    refreshTokens(@GetCurrentUserId() userId:string,
                   @GetCurrentUser('refreshToken') refreshToken: string) {
         return this.authService.refreshTokens(userId, refreshToken)
     }

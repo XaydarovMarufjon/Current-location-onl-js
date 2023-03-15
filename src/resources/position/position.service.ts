@@ -7,7 +7,14 @@ import { UpdatePositionDto } from './dto/update-position.dto';
 export class PositionService {
   constructor(private prisma: PrismaService){}
   async create(createPositionDto: CreatePositionDto) {
-    // const position = await this.prisma.
+    const position = await this.prisma.position.create({
+      data: {
+        name: createPositionDto.name,
+        nameuz: createPositionDto.nameuz,
+        nameru: createPositionDto.nameru,
+        listOrgId: createPositionDto.listOrgId
+      }
+    })
   }
 
   findAll() {

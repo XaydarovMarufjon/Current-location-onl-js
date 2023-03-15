@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const subdepartment_service_1 = require("./subdepartment.service");
 const create_subdepartment_dto_1 = require("./dto/create-subdepartment.dto");
 const update_subdepartment_dto_1 = require("./dto/update-subdepartment.dto");
+const guards_1 = require("../../common/guards");
 let SubdepartmentController = class SubdepartmentController {
     constructor(subdepartmentService) {
         this.subdepartmentService = subdepartmentService;
@@ -38,6 +39,7 @@ let SubdepartmentController = class SubdepartmentController {
     }
 };
 __decorate([
+    (0, common_1.UseGuards)(guards_1.AtGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

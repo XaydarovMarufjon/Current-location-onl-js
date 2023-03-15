@@ -95,7 +95,7 @@ let AuthService = class AuthService {
                 username
             }, {
                 secret: 'monitoring-at-secret',
-                expiresIn: 60 * 15
+                expiresIn: 60 * 30
             }),
             this.jwtService.signAsync({
                 sub: userId,

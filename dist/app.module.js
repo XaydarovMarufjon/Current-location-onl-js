@@ -13,6 +13,7 @@ const auth_module_1 = require("./auth/auth.module");
 const guards_1 = require("./common/guards");
 const prisma_module_1 = require("./prisma/prisma.module");
 const department_module_1 = require("./resources/department/department.module");
+const list_org_module_1 = require("./resources/list-org/list-org.module");
 const role_module_1 = require("./resources/role/role.module");
 const subdepartment_module_1 = require("./resources/subdepartment/subdepartment.module");
 const test_module_1 = require("./resources/test/test.module");
@@ -26,7 +27,8 @@ AppModule = __decorate([
             test_module_1.TestModule,
             department_module_1.DepartmentModule,
             subdepartment_module_1.SubdepartmentModule,
-            role_module_1.RoleModule
+            role_module_1.RoleModule,
+            list_org_module_1.ListOrgModule
         ],
         controllers: [],
         providers: [

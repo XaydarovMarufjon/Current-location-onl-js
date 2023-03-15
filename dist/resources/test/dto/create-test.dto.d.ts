@@ -1,13 +1,13 @@
 export declare class CreateTestDto {
     fullName: string;
     organization: string;
-    department: number;
+    department: string;
     position: string;
     email: string;
     phone: string;
-    role: number;
+    role: string;
     photo: string;
-    userId: number;
+    userId: string;
     username: string;
     password: string;
 }
