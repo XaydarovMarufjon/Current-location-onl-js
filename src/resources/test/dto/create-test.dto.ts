@@ -15,7 +15,7 @@ export class CreateTestDto {
     @IsNotEmpty()
     @IsNumber()
     @Field()
-    department: number;
+    department: string;
   
     @IsNotEmpty()
     @IsString()
@@ -33,7 +33,7 @@ export class CreateTestDto {
   
     @Field()
     @IsNumber()
-    role: number;
+    role: string;
   
     @IsString()
     @Field()
@@ -42,7 +42,7 @@ export class CreateTestDto {
     @IsNotEmpty()
     @IsNumber()
     @Field()
-    userId: number;
+    userId: string;
   
     @IsNotEmpty()
     @IsString()

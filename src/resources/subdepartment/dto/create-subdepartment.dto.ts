@@ -1,5 +1,5 @@
 import { Field } from "@nestjs/graphql";
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsString } from "class-validator";
 
 export class CreateSubdepartmentDto {
 
@@ -16,7 +16,7 @@ export class CreateSubdepartmentDto {
     @Field()
     nameru: string;
 
-    @IsNumber()
+    @IsString()
     @Field()
-    departmentId: number;
+    departmentId: string;
 }

@@ -14,4 +14,8 @@ export class CreateDepartmentDto {
     @IsString()
     @Field()
     nameru: string;
+    
+    @IsString()
+    @Field()
+    listOrgId: string;
 }
