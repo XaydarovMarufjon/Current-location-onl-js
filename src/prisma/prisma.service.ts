@@ -9,7 +9,7 @@ implements OnModuleInit, OnModuleDestroy {
         super({
             datasources: {
                 db: {
-                    url:'postgresql://postgres:8zlatan3@localhost:5432/vision?schema=public'
+                    url:'postgresql://postgres:123@localhost:5432/vision?schema=public'
                 }
             }
         })

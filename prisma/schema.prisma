@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,128 +8,459 @@ datasource db {
 }
 
 model User {
-  id String @id @default(uuid())
-  username String @unique
-  password String
+  id           String    @id @default(uuid())
+  username     String    @unique
+  password     String
   refreshToken String?
-  employee Employee[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  employee     Employee?
 
   @@map("users")
 }
 
 model Employee {
-  id String @id @default(uuid())
-  fullName String
+  id           String     @id @default(uuid())
+  fullName     String
   organization String
   departmentId String
-  department Department @relation(fields: [departmentId], references: [id])
-  position String
-  email String @unique
-  phone String
-  roleId String
-  role Role @relation(fields: [roleId], references: [id])
-  photo String
-  userId String  @unique
-  user User? @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  position     String
+  email        String     @unique
+  phone        String
+  roleId       String
+  photo        String
+  userId       String     @unique
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  department   Department @relation(fields: [departmentId], references: [id])
+  role         Role       @relation(fields: [roleId], references: [id])
+  user         User       @relation(fields: [userId], references: [id])
 
   @@map("employees")
 }
 
 model Department {
-  id String @id @default(uuid())
-  name String @unique
-  nameuz String?
-  nameru String?
+  id            String          @id @default(uuid())
+  name          String          @unique
+  nameuz        String?
+  nameru        String?
+  listOrgId     String
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  listOrg       ListOrg         @relation(fields: [listOrgId], references: [id])
+  employee      Employee[]
+  personal      Personal[]
   subdepartment SubDepartment[]
-  employee Employee[]
-  personal Personal[]
-  listOrgId String
-  listOrg ListOrg @relation(fields: [listOrgId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   @@map("departments")
 }
 
 model SubDepartment {
-  id String @id @default(uuid())
-  name String @unique
-  nameuz String?
-  nameru String?
-  personal Personal[]
-  departmentId String 
-  department Department @relation(fields: [departmentId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String     @id @default(uuid())
+  name         String     @unique
+  nameuz       String?
+  nameru       String?
+  departmentId String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  personal     Personal[]
+  department   Department @relation(fields: [departmentId], references: [id])
 
   @@map("subDepartments")
 }
 
 model Role {
-  id String @id @default(uuid())
-  name String @unique
-  employee Employee[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String     @id @default(uuid())
+  name      String     @unique
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  employee  Employee[]
 
   @@map("roles")
 }
 
 model Position {
-  id String @id @default(uuid())
-  name String
-  nameuz String?
-  nameru String?
-  personal Personal[]
+  id        String     @id @default(uuid())
+  name      String
+  nameuz    String?
+  nameru    String?
   listOrgId String
-  listOrg ListOrg @relation(fields: [listOrgId], references: [id])
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  personal  Personal[]
+  listOrg   ListOrg    @relation(fields: [listOrgId], references: [id])
 
   @@map("positions")
 }
 
-model ListOrg {
-  id String @id @default(uuid())
-  name String
-  nameuz String?
-  nameru String?
+model TypeIncident {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  nameuz    String
+  nameru    String
+  code      String   @unique
+  vector    String
   creatorId String?
-  editorId String?
+  editorId  String?
   removerId String?
-  department Department[]
-  position Position[]
-  personal Personal[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("typeIncidents")
+}
+
+model ListOrg {
+  id         String       @id @default(uuid())
+  name       String
+  nameuz     String?
+  nameru     String?
+  creatorId  String?
+  editorId   String?
+  removerId  String?
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  department Department[]
+  personal   Personal[]
+  position   Position[]
 
   @@map("listorgs")
 }
 
 model Personal {
-  id String @id @default(uuid())
-  firstName String
-  middleName String?
-  lastName String
-  phone String?
-  email String?
-  positionId String
-  position Position @relation(fields: [positionId], references: [id])
-  listOrgId String
-  listOrg ListOrg @relation(fields: [listOrgId], references: [id])
-  departmentId String
-  department Department @relation(fields: [departmentId], references: [id])
+  id              String         @id @default(uuid())
+  firstName       String
+  middleName      String?
+  lastName        String
+  phone           String?
+  email           String?
+  positionId      String
+  listOrgId       String
+  departmentId    String
   subDepartmentId String?
-  subDepartment SubDepartment? @relation(fields: [subDepartmentId], references: [id])
-  creatorId String?
-  editorId String?
+  creatorId       String?
+  editorId        String?
+  removerId       String?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  department      Department     @relation(fields: [departmentId], references: [id])
+  listOrg         ListOrg        @relation(fields: [listOrgId], references: [id])
+  position        Position       @relation(fields: [positionId], references: [id])
+  subDepartment   SubDepartment? @relation(fields: [subDepartmentId], references: [id])
+
+  @@map("personal")
+}
+
+model HotLine {
+  id          String   @id @default(uuid())
+  date        DateTime @default(now())
+  fullName    String   @unique
+  contact     String
+  description String
+  answer      String
+  employeeId  String
+  creatorId   String?
+  editorId    String?
+  removerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("HotLine")
+}
+
+model ServiceSue {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ServiceSue")
+}
+
+model TypeComputer {
+  id            String   @id @default(uuid())
+  incidentTypes String
+  code          String   @unique
+  vector        String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("TypeComputer")
+}
+
+model AboutMeans {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  toolDetails String
+  nameuz      String
+  nameru      String
+  creatorId   String
+  editorId    String
+  removerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("AboutMeans")
+}
+
+model SeverityLevel {
+  id            String   @id @default(uuid())
+  code          String   @unique
+  severityLevel String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("SeverityLevel")
+}
+
+model SortForce {
+  id               String   @id @default(uuid())
+  code             String   @unique
+  incidentSeverity String
+  nameuz           String
+  nameru           String
+  creatorId        String
+  editorId         String
+  removerId        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("SortForce")
+}
+
+model SortGravity {
+  id               String   @id @default(uuid())
+  code             String   @unique
+  incidentSeverity String
+  nameuz           String
+  nameru           String
+  creatorId        String
+  editorId         String
+  removerId        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("SortGravity")
+}
+
+model MarkLimit {
+  id            String   @id @default(uuid())
+  code          String   @unique
+  privacySymbol String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("MarkLimit")
+}
+
+model AttackedDomain {
+  id            String   @id @default(uuid())
+  hosting       String
+  domainSupport String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("AttackedDomain")
+}
+
+model AttackedDomainUri {
+  id                  String   @id @default(uuid())
+  code                String   @unique
+  organizationWebsite String
+  nameuz              String
+  nameru              String
+  creatorId           String
+  editorId            String
+  removerId           String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("AttackedDomainUri")
+}
+
+model AttackedDomainEmail {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  email     String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
   removerId String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("personal")
+  @@map("AttackedDomainEmail")
+}
+
+model HarmfulDomain {
+  id            String   @id @default(uuid())
+  hosting       String
+  domainSupport String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("HarmfulDomain")
+}
+
+model HarmfulDomainUri {
+  id                  String   @id @default(uuid())
+  code                String   @unique
+  organizationWebsite String
+  nameuz              String
+  nameru              String
+  creatorId           String
+  editorId            String
+  removerId           String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@map("HarmfulDomainUri")
+}
+
+model HarmfulDomainEmail {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  email     String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("HarmfulDomainEmail")
+}
+
+model Vulnerability {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  cellPhone String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("Vulnerability")
+}
+
+model AsDetected {
+  id        String   @id @default(uuid())
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+
+  @@map("AsDetected")
+}
+
+model DetectedStatus {
+  id        String   @id @default(uuid())
+  name      String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("DetectedStatus")
+}
+
+model ImpactObject {
+  id               String   @id @default(uuid())
+  code             String   @unique
+  objectsInfluence String
+  nameru           String
+  creatorId        String
+  editorId         String
+  removerId        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  nameuz           String
+
+  @@map("ImpactObject")
+}
+
+model TypeComponents {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("TypeComponents")
+}
+
+model GroupComponents {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  nameGroup String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("GroupComponents")
+}
+
+model ImpactComponent {
+  id               String   @id @default(uuid())
+  code             String   @unique
+  impactComponents String
+  nameuz           String
+  nameru           String
+  creatorId        String
+  editorId         String
+  removerId        String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  @@map("ImpactComponent")
 }

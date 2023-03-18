@@ -4,9 +4,9 @@ import { UpdateTypeIncidentDto } from './dto/update-type-incident.dto';
 export declare class TypeIncidentController {
     private readonly typeIncidentService;
     constructor(typeIncidentService: TypeIncidentService);
-    create(createTypeIncidentDto: CreateTypeIncidentDto): string;
-    findAll(): string;
-    findOne(id: string): string;
-    update(id: string, updateTypeIncidentDto: UpdateTypeIncidentDto): string;
-    remove(id: string): string;
+    create(createTypeIncidentDto: CreateTypeIncidentDto): Promise<import(".prisma/client").TypeIncident>;
+    findAll(): Promise<import("./entities/type-incident.entity").TypeIncident[]>;
+    findOne(id: string): Promise<import("./entities/type-incident.entity").TypeIncident>;
+    update(id: string, updateTypeIncidentDto: UpdateTypeIncidentDto): Promise<import("./entities/type-incident.entity").TypeIncident>;
+    remove(id: string): Promise<import(".prisma/client").TypeIncident>;
 }

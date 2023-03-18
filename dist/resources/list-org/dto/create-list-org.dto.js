@@ -34,16 +34,19 @@ __decorate([
     __metadata("design:type", String)
 ], CreateListOrgDto.prototype, "nameru", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateListOrgDto.prototype, "creatorId", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateListOrgDto.prototype, "editorId", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, graphql_1.Field)(),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], CreateListOrgDto.prototype, "removerId", void 0);
 exports.CreateListOrgDto = CreateListOrgDto;
 //# sourceMappingURL=create-list-org.dto.js.map

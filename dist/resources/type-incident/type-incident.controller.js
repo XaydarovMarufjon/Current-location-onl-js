@@ -13,6 +13,8 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TypeIncidentController = void 0;
+const guards_1 = require("../../common/guards");
+const decorators_1 = require("../../common/decorators");
 const common_1 = require("@nestjs/common");
 const type_incident_service_1 = require("./type-incident.service");
 const create_type_incident_dto_1 = require("./dto/create-type-incident.dto");
@@ -28,29 +30,32 @@ let TypeIncidentController = class TypeIncidentController {
         return this.typeIncidentService.findAll();
     }
     findOne(id) {
-        return this.typeIncidentService.findOne(+id);
+        return this.typeIncidentService.findOne(id);
     }
     update(id, updateTypeIncidentDto) {
-        return this.typeIncidentService.update(+id, updateTypeIncidentDto);
+        return this.typeIncidentService.update(id, updateTypeIncidentDto);
     }
     remove(id) {
-        return this.typeIncidentService.remove(+id);
+        return this.typeIncidentService.remove(id);
     }
 };
 __decorate([
-    (0, common_1.Post)(),
+    (0, decorators_1.Public)(),
+    (0, common_1.Post)("/create"),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_type_incident_dto_1.CreateTypeIncidentDto]),
     __metadata("design:returntype", void 0)
 ], TypeIncidentController.prototype, "create", null);
 __decorate([
-    (0, common_1.Get)(),
+    (0, decorators_1.Public)(),
+    (0, common_1.Get)("/getall"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], TypeIncidentController.prototype, "findAll", null);
 __decorate([
+    (0, common_1.UseGuards)(guards_1.AtGuard),
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -58,6 +63,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TypeIncidentController.prototype, "findOne", null);
 __decorate([
+    (0, decorators_1.Public)(),
     (0, common_1.Patch)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
@@ -66,6 +72,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], TypeIncidentController.prototype, "update", null);
 __decorate([
+    (0, decorators_1.Public)(),
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),

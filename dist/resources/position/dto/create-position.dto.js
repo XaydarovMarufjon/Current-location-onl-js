@@ -30,5 +30,11 @@ __decorate([
     (0, graphql_1.Field)(),
     __metadata("design:type", String)
 ], CreatePositionDto.prototype, "nameru", void 0);
+__decorate([
+    (0, class_validator_1.IsNotEmpty)(),
+    (0, class_validator_1.IsString)(),
+    (0, graphql_1.Field)(),
+    __metadata("design:type", String)
+], CreatePositionDto.prototype, "listOrgId", void 0);
 exports.CreatePositionDto = CreatePositionDto;
 //# sourceMappingURL=create-position.dto.js.map

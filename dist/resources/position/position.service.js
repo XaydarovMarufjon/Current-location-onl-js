@@ -17,6 +17,14 @@ let PositionService = class PositionService {
         this.prisma = prisma;
     }
     async create(createPositionDto) {
+        const position = await this.prisma.position.create({
+            data: {
+                name: createPositionDto.name,
+                nameuz: createPositionDto.nameuz,
+                nameru: createPositionDto.nameru,
+                listOrgId: createPositionDto.listOrgId
+            }
+        });
     }
     findAll() {
         return `This action returns all position`;

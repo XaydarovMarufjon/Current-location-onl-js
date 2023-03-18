@@ -24,7 +24,7 @@ let ListOrgService = class ListOrgService {
                 nameru: createListOrgDto.nameru,
                 creatorId: createListOrgDto.creatorId,
                 editorId: createListOrgDto.editorId,
-                removerId: createListOrgDto.removerId ? createListOrgDto.removerId : null
+                removerId: createListOrgDto.removerId
             }
         });
         return listorg;
