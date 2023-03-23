@@ -1,3 +1,9 @@
+import { EditEmployeeNameModule } from './resources/edit-employee-name/edit-employee-name.module';
+import { EmployeeNameModule } from './resources/employee-name/employee-name.module';
+import { DamageFactorsModule } from './resources/damage-factors/damage-factors.module';
+import { ConfidentialityModule } from './resources/confidentiality/confidentiality.module';
+import { CurrentStatusModule } from './resources/current-status/current-status.module';
+import { ResGeographyModule } from './resources/res-geography/res-geography.module';
 import { TacticsViolatorModule } from './resources/tactics-violator/tactics-violator.module';
 import { MethodViolatorModule } from './resources/method-violator/method-violator.module';
 import { MotivationModule } from './resources/motivation/motivation.module';
@@ -31,6 +37,7 @@ import { TypeComputerModule } from './resources/type-computer/type-computer.modu
 import { AboutMeansModule } from './resources/about-means/about-means.module';
 import { AttackedDomainModule } from './resources/attacked-domain/attacked-domain.module';
 import { HarmfulDomainModule } from './resources/harmful-domain/harmful-domain.module';
+import { TypicalThreatModule } from './resources/typical-threat/typical-threat.module';
 
 @Module({
   imports: [
@@ -64,7 +71,13 @@ import { HarmfulDomainModule } from './resources/harmful-domain/harmful-domain.m
     MotivationModule,
     MethodViolatorModule,
     TacticsViolatorModule,
-    
+    TypicalThreatModule,
+    ResGeographyModule,
+    CurrentStatusModule,
+    ConfidentialityModule,
+    DamageFactorsModule,
+    EmployeeNameModule,
+    EditEmployeeNameModule
     
   ],
   controllers: [],

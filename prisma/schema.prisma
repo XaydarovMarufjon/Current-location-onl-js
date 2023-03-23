@@ -512,3 +512,123 @@ model TacticsViolator {
 
   @@map("TacticsViolator")
 }
+
+model TypicalThreatModule {
+  id        String   @id @default(uuid())
+  gangTools String
+  toolType  String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("TypicalThreatModule")
+}
+
+model ResGeographyModule {
+  id                String   @id @default(uuid())
+  code              String   @unique
+  geographicregions String
+  nameuz            String
+  nameru            String
+  creatorId         String
+  editorId          String
+  removerId         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("ResGeographyModule")
+}
+
+model CurrentStatus {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  nameStatus String
+  nameuz     String
+  nameru     String
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("CurrentStatus")
+}
+
+model Confidentiality {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("Confidentiality")
+}
+
+model DamageFactors {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("DamageFactors")
+}
+
+model SubjectDamage {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  damage    String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("SubjectDamage")
+}
+
+model EmployeeName {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  fullName  String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("EmployeeName")
+}
+
+model EditEmployeeName {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  fullName  String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("EditEmployeeName")
+}
