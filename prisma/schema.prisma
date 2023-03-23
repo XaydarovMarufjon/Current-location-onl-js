@@ -464,3 +464,51 @@ model ImpactComponent {
 
   @@map("ImpactComponent")
 }
+
+model Motivation {
+  id           String   @id @default(uuid())
+  code         String   @unique
+  hackerGroups String
+  nameuz       String
+  nameru       String
+  creatorId    String
+  editorId     String
+  removerId    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("Motivation")
+}
+
+model MethodViolator {
+  id            String   @id @default(uuid())
+  techniqueCode String   @unique
+  nameTechnique String
+  MITRECode     String   @unique
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("MethodViolator")
+}
+
+model TacticsViolator {
+  id           String   @id @default(uuid())
+  code         String   @unique
+  objectAttack String
+  stages       String
+  description  String
+  nameuz       String
+  nameru       String
+  creatorId    String
+  editorId     String
+  removerId    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("TacticsViolator")
+}

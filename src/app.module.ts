@@ -1,3 +1,6 @@
+import { TacticsViolatorModule } from './resources/tactics-violator/tactics-violator.module';
+import { MethodViolatorModule } from './resources/method-violator/method-violator.module';
+import { MotivationModule } from './resources/motivation/motivation.module';
 import { ImpactComponentModule } from './resources/impact-component/impact-component.module';
 import { TypeComponentsModule } from './resources/type-components/type-components.module';
 import { ImpactObjectModule } from './resources/impact-object/impact-object.module';
@@ -58,6 +61,11 @@ import { HarmfulDomainModule } from './resources/harmful-domain/harmful-domain.m
     ImpactObjectModule, 
     TypeComponentsModule,
     ImpactComponentModule,
+    MotivationModule,
+    MethodViolatorModule,
+    TacticsViolatorModule,
+    
+    
   ],
   controllers: [],
   providers: [
