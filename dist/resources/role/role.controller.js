@@ -28,13 +28,13 @@ let RoleController = class RoleController {
         return this.roleService.findAll();
     }
     findOne(id) {
-        return this.roleService.findOne(+id);
+        return this.roleService.findOne(id);
     }
     update(id, updateRoleDto) {
-        return this.roleService.update(+id, updateRoleDto);
+        return this.roleService.update(id, updateRoleDto);
     }
     remove(id) {
-        return this.roleService.remove(+id);
+        return this.roleService.remove(id);
     }
 };
 __decorate([

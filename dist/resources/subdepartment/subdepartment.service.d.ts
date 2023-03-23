@@ -6,7 +6,7 @@ export declare class SubdepartmentService {
     constructor(prisma: PrismaService);
     create(createSubdepartmentDto: CreateSubdepartmentDto): Promise<import(".prisma/client").SubDepartment>;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateSubdepartmentDto: UpdateSubdepartmentDto): string;
-    remove(id: number): string;
+    findOne(id: string): string;
+    update(id: string, updateSubdepartmentDto: UpdateSubdepartmentDto): string;
+    remove(id: string): string;
 }

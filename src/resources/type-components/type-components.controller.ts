@@ -19,16 +19,16 @@ export class TypeComponentsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.typeComponentsService.findOne(+id);
+    return this.typeComponentsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTypeComponentDto: UpdateTypeComponentDto) {
-    return this.typeComponentsService.update(+id, updateTypeComponentDto);
+    return this.typeComponentsService.update(id, updateTypeComponentDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.typeComponentsService.remove(+id);
+    return this.typeComponentsService.remove(id);
   }
 }

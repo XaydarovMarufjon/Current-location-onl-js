@@ -17,8 +17,6 @@ export class SortGravityService {
         creatorId: createSortGravityDto.creatorId,
         editorId: createSortGravityDto.editorId,
         removerId: createSortGravityDto.removerId,
-        createdAt: createSortGravityDto.createdAt,
-        updatedAt: createSortGravityDto.updatedAt
       }
     })
   }

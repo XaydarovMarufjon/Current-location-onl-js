@@ -19,16 +19,16 @@ export class HarmfulDomainEmailController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.harmfulDomainEmailService.findOne(+id);
+    return this.harmfulDomainEmailService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateHarmfulDomainEmailDto: UpdateHarmfulDomainEmailDto) {
-    return this.harmfulDomainEmailService.update(+id, updateHarmfulDomainEmailDto);
+    return this.harmfulDomainEmailService.update(id, updateHarmfulDomainEmailDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.harmfulDomainEmailService.remove(+id);
+    return this.harmfulDomainEmailService.remove(id);
   }
 }

@@ -16,8 +16,6 @@ export class ServiceSueService {
         creatorId: createServiceSueDto.creatorId,
         editorId: createServiceSueDto.editorId,
         removerId: createServiceSueDto.removerId,
-        createdAt: createServiceSueDto.createdAt,
-        updatedAt: createServiceSueDto.updatedAt
       }
     })
   }

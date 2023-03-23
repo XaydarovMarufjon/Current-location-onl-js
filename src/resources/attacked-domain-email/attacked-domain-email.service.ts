@@ -17,8 +17,6 @@ async  create(createAttackedDomainEmailDto: CreateAttackedDomainEmailDto) {
          creatorId: createAttackedDomainEmailDto.creatorId,
          editorId: createAttackedDomainEmailDto.editorId,
          removerId: createAttackedDomainEmailDto.removerId,
-         createdAt: createAttackedDomainEmailDto.createdAt,
-         updatedAt: createAttackedDomainEmailDto.updatedAt
       }
     })
   }

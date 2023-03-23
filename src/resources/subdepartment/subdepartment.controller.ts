@@ -21,16 +21,16 @@ export class SubdepartmentController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.subdepartmentService.findOne(+id);
+    return this.subdepartmentService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSubdepartmentDto: UpdateSubdepartmentDto) {
-    return this.subdepartmentService.update(+id, updateSubdepartmentDto);
+    return this.subdepartmentService.update(id, updateSubdepartmentDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.subdepartmentService.remove(+id);
+    return this.subdepartmentService.remove(id);
   }
 }

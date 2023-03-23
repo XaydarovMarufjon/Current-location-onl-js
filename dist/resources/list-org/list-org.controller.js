@@ -29,13 +29,13 @@ let ListOrgController = class ListOrgController {
         return this.listOrgService.findAll();
     }
     findOne(id) {
-        return this.listOrgService.findOne(+id);
+        return this.listOrgService.findOne(id);
     }
     update(id, updateListOrgDto) {
-        return this.listOrgService.update(+id, updateListOrgDto);
+        return this.listOrgService.update(id, updateListOrgDto);
     }
     remove(id) {
-        return this.listOrgService.remove(+id);
+        return this.listOrgService.remove(id);
     }
 };
 __decorate([

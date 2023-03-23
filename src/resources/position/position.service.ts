@@ -21,15 +21,15 @@ export class PositionService {
     return `This action returns all position`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} position`;
   }
 
-  update(id: number, updatePositionDto: UpdatePositionDto) {
+  update(id: string, updatePositionDto: UpdatePositionDto) {
     return `This action updates a #${id} position`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} position`;
   }
 }

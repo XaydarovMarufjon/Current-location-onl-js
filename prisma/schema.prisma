@@ -174,7 +174,7 @@ model ServiceSue {
   nameru    String
   creatorId String
   editorId  String
-  removerId String
+  removerId String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
@@ -188,9 +188,9 @@ model TypeComputer {
   vector        String
   nameuz        String
   nameru        String
-  creatorId     String
-  editorId      String
-  removerId     String
+  creatorId     String?
+  editorId      String?
+  removerId     String?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -274,8 +274,8 @@ model MarkLimit {
 
 model AttackedDomain {
   id            String   @id @default(uuid())
-  hosting       String
-  domainSupport String
+  hosting       String   
+  domainSupport String   @unique
   nameuz        String
   nameru        String
   creatorId     String
@@ -513,7 +513,7 @@ model TacticsViolator {
   @@map("TacticsViolator")
 }
 
-model TypicalThreatModule {
+model TypicalThreat {
   id        String   @id @default(uuid())
   gangTools String
   toolType  String
@@ -525,10 +525,10 @@ model TypicalThreatModule {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@map("TypicalThreatModule")
+  @@map("TypicalThreat")
 }
 
-model ResGeographyModule {
+model ResGeography {
   id                String   @id @default(uuid())
   code              String   @unique
   geographicregions String
@@ -540,7 +540,7 @@ model ResGeographyModule {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  @@map("ResGeographyModule")
+  @@map("ResGeography")
 }
 
 model CurrentStatus {

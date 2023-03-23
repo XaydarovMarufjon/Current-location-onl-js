@@ -6,7 +6,7 @@ export declare class PositionService {
     constructor(prisma: PrismaService);
     create(createPositionDto: CreatePositionDto): Promise<void>;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updatePositionDto: UpdatePositionDto): string;
-    remove(id: number): string;
+    findOne(id: string): string;
+    update(id: string, updatePositionDto: UpdatePositionDto): string;
+    remove(id: string): string;
 }

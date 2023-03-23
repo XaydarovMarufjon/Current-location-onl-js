@@ -18,24 +18,16 @@ export class CreateServiceSueDto {
     @Field()
     nameru: string;
 
-    @IsNotEmpty()
     @IsString()
     @Field()
-    creatorId: string;
+    creatorId?: string;
 
     @IsString()
     @Field()
-    editorId: string;
+    editorId?: string;
 
     @IsString()
     @Field()
-    removerId: string;
+    removerId?: string;
 
-    @IsString()
-    @Field()
-    createdAt: string;
-
-    @IsString()
-    @Field()
-    updatedAt: string;
 }

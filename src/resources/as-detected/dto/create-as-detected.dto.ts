@@ -31,11 +31,5 @@ export class CreateAsDetectedDto {
     @Field()
     removerId: string;
 
-    @IsString()
-    @Field()
-    createdAt: string;
-
-    @IsString()
-    @Field()
-    updatedAt: string;
+   
 }

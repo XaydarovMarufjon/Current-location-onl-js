@@ -6,7 +6,7 @@ export declare class ListOrgService {
     constructor(prisma: PrismaService);
     create(createListOrgDto: CreateListOrgDto): Promise<import(".prisma/client").ListOrg>;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateListOrgDto: UpdateListOrgDto): string;
-    remove(id: number): string;
+    findOne(id: string): string;
+    update(id: string, updateListOrgDto: UpdateListOrgDto): string;
+    remove(id: string): string;
 }

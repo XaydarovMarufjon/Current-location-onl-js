@@ -1,3 +1,4 @@
+import { HarmfulDomain } from './entities/harmful-domain.entity';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateHarmfulDomainDto } from './dto/create-harmful-domain.dto';
@@ -16,25 +17,47 @@ async  create(createHarmfulDomainDto: CreateHarmfulDomainDto) {
         creatorId: createHarmfulDomainDto.creatorId,
         editorId: createHarmfulDomainDto.editorId,
         removerId: createHarmfulDomainDto.removerId,
-        createdAt: createHarmfulDomainDto.createdAt,
-        updatedAt: createHarmfulDomainDto.updatedAt
     }
   })
   }
 
-  findAll() {
-    return `This action returns all harmfulDomain`;
+  async findAll(): Promise<HarmfulDomain>{
+    try {
+      return await this.prisma.harmfulDomain.findMany()
+    } catch (error) {
+      throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} harmfulDomain`;
-  }
+ 
+  async findOne(id: string) : Promise<HarmfulDomain | null> {
+    try{
+     return await this.prisma.harmfulDomain.findUnique({
+       where:{ id }
+     });
+    } catch (e) { 
+      throw new Error(`Siz qidirgan ${id } boycha hech narsa topilmadi, xatolik ${e.message}`)
+    }
+ }
 
-  update(id: number, updateHarmfulDomainDto: UpdateHarmfulDomainDto) {
-    return `This action updates a #${id} harmfulDomain`;
-  }
+async update(id: string, data: UpdateHarmfulDomainDto): Promise<HarmfulDomain>{
+   try {
+      return await this.prisma.harmfulDomain.update({
+       where : {id} , 
+       data,
+      })
+   } catch (e) { 
+     throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
+   }
+ }
 
-  remove(id: number) {
-    return `This action removes a #${id} harmfulDomain`;
-  }
+async remove(id: string) {
+    try {
+      return await this.prisma.harmfulDomain.delete({
+       where :  {id},
+      })
+    } catch (e) {
+       throw new Error(`O'chirishda xatolik yuzaga keldi id : ${id} , xatolik ${e.message}`)
+    }
+ }
 }

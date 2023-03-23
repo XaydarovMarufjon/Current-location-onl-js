@@ -21,16 +21,16 @@ export class ListOrgController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.listOrgService.findOne(+id);
+    return this.listOrgService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateListOrgDto: UpdateListOrgDto) {
-    return this.listOrgService.update(+id, updateListOrgDto);
+    return this.listOrgService.update(id, updateListOrgDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.listOrgService.remove(+id);
+    return this.listOrgService.remove(id);
   }
 }

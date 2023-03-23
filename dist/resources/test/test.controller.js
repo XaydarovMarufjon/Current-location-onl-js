@@ -29,13 +29,13 @@ let TestController = class TestController {
         return this.testService.findAll();
     }
     findOne(id) {
-        return this.testService.findOne(+id);
+        return this.testService.findOne(id);
     }
     update(id, updateTestDto) {
-        return this.testService.update(+id, updateTestDto);
+        return this.testService.update(id, updateTestDto);
     }
     remove(id) {
-        return this.testService.remove(+id);
+        return this.testService.remove(id);
     }
 };
 __decorate([

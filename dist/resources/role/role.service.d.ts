@@ -3,7 +3,7 @@ import { UpdateRoleDto } from './dto/update-role.dto';
 export declare class RoleService {
     create(createRoleDto: CreateRoleDto): string;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateRoleDto: UpdateRoleDto): string;
-    remove(id: number): string;
+    findOne(id: string): string;
+    update(id: string, updateRoleDto: UpdateRoleDto): string;
+    remove(id: string): string;
 }

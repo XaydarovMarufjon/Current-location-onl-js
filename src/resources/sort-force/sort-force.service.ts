@@ -17,9 +17,6 @@ async  create(createSortForceDto: CreateSortForceDto) {
       creatorId: createSortForceDto.creatorId,
       editorId: createSortForceDto.editorId,
       removerId: createSortForceDto.removerId,
-      createdAt: createSortForceDto.createdAt,
-      updatedAt: createSortForceDto.updatedAt
-
     }
   })
   }

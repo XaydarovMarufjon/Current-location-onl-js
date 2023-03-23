@@ -17,8 +17,6 @@ async  create(createAttackedDomainUriDto: CreateAttackedDomainUriDto) {
       creatorId: createAttackedDomainUriDto.creatorId,
       editorId: createAttackedDomainUriDto.editorId,
       removerId: createAttackedDomainUriDto.removerId,
-      createdAt: createAttackedDomainUriDto.createdAt,
-      updatedAt: createAttackedDomainUriDto.updatedAt
     }
   })
   }

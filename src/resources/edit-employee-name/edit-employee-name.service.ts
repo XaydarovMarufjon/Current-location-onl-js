@@ -8,7 +8,7 @@ import { UpdateEditEmployeeNameDto } from './dto/update-edit-employee-name.dto';
 export class EditEmployeeNameService {
   constructor(private prisma: PrismaService) {}
 async  create(createEditEmployeeNameDto: CreateEditEmployeeNameDto) {
-  const EditEmployeeName = await this.prisma.EditEmployeeName.create({
+  const editEmployeeName = await this.prisma.editEmployeeName.create({
     data: { 
       code : createEditEmployeeNameDto.code, 
       fullName: createEditEmployeeNameDto.fullName,

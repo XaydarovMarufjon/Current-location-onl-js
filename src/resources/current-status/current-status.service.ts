@@ -17,8 +17,7 @@ async  create(createCurrentStatusDto: CreateCurrentStatusDto) {
       creatorId: createCurrentStatusDto.creatorId,
       editorId: createCurrentStatusDto.editorId,
       removerId: createCurrentStatusDto.removerId,
-      createdAt: createCurrentStatusDto.createdAt,
-      updatedAt: createCurrentStatusDto.updatedAt
+     
     }
   })
 }

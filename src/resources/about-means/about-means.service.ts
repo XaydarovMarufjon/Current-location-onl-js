@@ -17,9 +17,6 @@ export class AboutMeansService {
       creatorId: createAboutMeanDto.creatorId,
       editorId: createAboutMeanDto.editorId,
       removerId: createAboutMeanDto.removerId,
-      createdAt: createAboutMeanDto.createdAt,
-      updatedAt: createAboutMeanDto.updatedAt
-
     }
    })
   }

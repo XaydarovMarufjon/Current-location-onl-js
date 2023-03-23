@@ -18,8 +18,6 @@ async create(createTypeComputerDto: CreateTypeComputerDto) {
         creatorId: createTypeComputerDto.creatorId,
         editorId: createTypeComputerDto.editorId,
         removerId: createTypeComputerDto.removerId,
-        createdAt: createTypeComputerDto.createdAt,
-        updatedAt: createTypeComputerDto.updatedAt
        }
     })
   }

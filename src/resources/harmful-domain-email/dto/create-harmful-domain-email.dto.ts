@@ -35,11 +35,5 @@ export class CreateHarmfulDomainEmailDto {
     @Field()
     removerId: string;
 
-    @IsString()
-    @Field()
-    createdAt: string;
-
-    @IsString()
-    @Field()
-    updatedAt: string;
+   
 }

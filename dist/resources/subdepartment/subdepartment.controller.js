@@ -29,13 +29,13 @@ let SubdepartmentController = class SubdepartmentController {
         return this.subdepartmentService.findAll();
     }
     findOne(id) {
-        return this.subdepartmentService.findOne(+id);
+        return this.subdepartmentService.findOne(id);
     }
     update(id, updateSubdepartmentDto) {
-        return this.subdepartmentService.update(+id, updateSubdepartmentDto);
+        return this.subdepartmentService.update(id, updateSubdepartmentDto);
     }
     remove(id) {
-        return this.subdepartmentService.remove(+id);
+        return this.subdepartmentService.remove(id);
     }
 };
 __decorate([

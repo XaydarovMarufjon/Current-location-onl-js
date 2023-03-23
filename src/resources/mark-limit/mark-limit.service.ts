@@ -8,7 +8,7 @@ import { UpdateMarkLimitDto } from './dto/update-mark-limit.dto';
 export class MarkLimitService {
   constructor(private prisma: PrismaService) {}
   async  create(createMarkLimitDto: CreateMarkLimitDto) {
-    const markLimit = await this.prisma.marklimit.create({
+    const markLimit = await this.prisma.markLimit.create({
       data : {
         code : createMarkLimitDto.code,
         privacySymbol: createMarkLimitDto.privacySymbol,
@@ -17,8 +17,7 @@ export class MarkLimitService {
         creatorId: createMarkLimitDto.creatorId,
         editorId: createMarkLimitDto.editorId,
         removerId: createMarkLimitDto.removerId,
-        createdAt: createMarkLimitDto.createdAt,
-        updatedAt: createMarkLimitDto.updatedAt
+    
       }
     })
   }

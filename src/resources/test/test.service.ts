@@ -42,15 +42,15 @@ export class TestService {
     return `This action returns all test`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} test`;
   }
 
-  update(id: number, updateTestDto: UpdateTestDto) {
+  update(id: string, updateTestDto: UpdateTestDto) {
     return `This action updates a #${id} test`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} test`;
   }
 

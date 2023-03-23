@@ -6,8 +6,8 @@ export declare class TestService {
     constructor(prisma: PrismaService);
     create(createTestDto: CreateTestDto): Promise<import(".prisma/client").Employee>;
     findAll(): string;
-    findOne(id: number): string;
-    update(id: number, updateTestDto: UpdateTestDto): string;
-    remove(id: number): string;
+    findOne(id: string): string;
+    update(id: string, updateTestDto: UpdateTestDto): string;
+    remove(id: string): string;
     hashData(data: string): Promise<string>;
 }

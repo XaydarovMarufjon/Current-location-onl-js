@@ -29,13 +29,13 @@ let DepartmentController = class DepartmentController {
         return this.departmentService.findAll();
     }
     findOne(id) {
-        return this.departmentService.findOne(+id);
+        return this.departmentService.findOne(id);
     }
     update(id, updateDepartmentDto) {
-        return this.departmentService.update(+id, updateDepartmentDto);
+        return this.departmentService.update(id, updateDepartmentDto);
     }
     remove(id) {
-        return this.departmentService.remove(+id);
+        return this.departmentService.remove(id);
     }
 };
 __decorate([

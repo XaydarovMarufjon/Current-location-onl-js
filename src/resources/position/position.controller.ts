@@ -21,16 +21,16 @@ export class PositionController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.positionService.findOne(+id);
+    return this.positionService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePositionDto: UpdatePositionDto) {
-    return this.positionService.update(+id, updatePositionDto);
+    return this.positionService.update(id, updatePositionDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.positionService.remove(+id);
+    return this.positionService.remove(id);
   }
 }

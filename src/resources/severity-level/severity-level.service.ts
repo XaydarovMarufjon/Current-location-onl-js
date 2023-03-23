@@ -17,8 +17,6 @@ export class SeverityLevelService {
         creatorId: createSeverityLevelDto.creatorId,
         editorId: createSeverityLevelDto.editorId,
         removerId: createSeverityLevelDto.removerId,
-        createdAt: createSeverityLevelDto.createdAt,
-        updatedAt: createSeverityLevelDto.updatedAt
       }
     })
   }

@@ -17,8 +17,7 @@ async  create(createConfidentialityDto: CreateConfidentialityDto) {
       creatorId: createConfidentialityDto.creatorId,
       editorId: createConfidentialityDto.editorId,
       removerId: createConfidentialityDto.removerId,
-      createdAt: createConfidentialityDto.createdAt,
-      updatedAt: createConfidentialityDto.updatedAt
+      
     }
   })
   }

@@ -12,15 +12,15 @@ export class PersonalService {
     return `This action returns all personal`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} personal`;
   }
 
-  update(id: number, updatePersonalDto: UpdatePersonalDto) {
+  update(id: string, updatePersonalDto: UpdatePersonalDto) {
     return `This action updates a #${id} personal`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} personal`;
   }
 }

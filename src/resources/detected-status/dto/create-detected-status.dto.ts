@@ -29,13 +29,7 @@ export class CreateDetectedStatusDto {
     @Field()
     removerId: string;
 
-    @IsString()
-    @Field()
-    createdAt: string;
-
-    @IsString()
-    @Field()
-    updatedAt: string;
+   
 
 }
 
