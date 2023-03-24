@@ -1,14 +1,12 @@
 import { Field } from "@nestjs/graphql";
 import {  IsNotEmpty,  IsString } from "class-validator";
-export class CreateTypicalThreatDto {
-    @IsString()
-    @Field()
-    gangTools: string;
+
+export class CreateImplementUgDto {
 
     @IsString()
     @Field()
-    toolType: string;
-    
+    name: string;
+
     @IsNotEmpty()
     @IsString()
     @Field()
@@ -31,6 +29,5 @@ export class CreateTypicalThreatDto {
     @IsString()
     @Field()
     removerId?: string;
-    
-
+   
 }

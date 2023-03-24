@@ -1,25 +1,24 @@
 import { Field } from "@nestjs/graphql";
-import {  IsNotEmpty,  IsString } from "class-validator";
-export class CreateTypicalThreatDto {
-    @IsString()
-    @Field()
-    gangTools: string;
+import { IsDate, IsDateString, IsNotEmpty, IsNumber, IsString, Max, Min } from "class-validator";
+
+export class CreateIdentifiedThreatDto {
 
     @IsString()
     @Field()
-    toolType: string;
-    
-    @IsNotEmpty()
+    code: string;
+
+    @IsString()
+    @Field()
+    threatSource: string;
+
     @IsString()
     @Field()
     nameuz: string;
 
-    @IsNotEmpty()
     @IsString()
     @Field()
     nameru: string;
 
-    @IsNotEmpty()
     @IsString()
     @Field()
     creatorId?: string;
@@ -31,6 +30,5 @@ export class CreateTypicalThreatDto {
     @IsString()
     @Field()
     removerId?: string;
-    
 
 }

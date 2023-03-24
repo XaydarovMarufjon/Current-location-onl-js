@@ -1,3 +1,9 @@
+import { IdentifiedUgModule } from './resources/references/identified-ug/identified-ug.module';
+import { ImplementUgModule } from './resources/references/implement-ug/implement-ug.module';
+import { ExactTypeModule } from './resources/references/exact-type/exact-type.module';
+import { ImpactUgModule } from './resources/references/impact-ug/impact-ug.module';
+import { IdentificationUgModule } from './resources/references/identification-ug/identification-ug.module';
+import { IdentifiedThreatModule } from './resources/references/identified-threat/identified-threat.module';
 import { SubjectDamageModule } from './resources/references/subject-damage/subject-damage.module';
 import { GroupComponentsModule } from './resources/references/group-components/group-components.module';
 import { DetectedStatusModule } from './resources/references/detected-status/detected-status.module';
@@ -83,7 +89,16 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     EditEmployeeNameModule,
     DetectedStatusModule,
     GroupComponentsModule,
-    SubjectDamageModule
+    SubjectDamageModule,
+    IdentifiedThreatModule,
+    IdentificationUgModule,
+    ImpactUgModule,
+    ExactTypeModule,
+    ImplementUgModule,
+    IdentifiedUgModule
+
+
+    
   ],
   controllers: [],
   providers: [

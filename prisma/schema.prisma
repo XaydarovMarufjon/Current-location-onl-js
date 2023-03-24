@@ -379,7 +379,6 @@ model Vulnerability {
 
 model AsDetected {
   id        String   @id @default(uuid())
-  name      String
   nameuz    String
   nameru    String
   creatorId String
@@ -387,7 +386,7 @@ model AsDetected {
   removerId String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
- 
+  name      String
 
   @@map("AsDetected")
 }
@@ -410,14 +409,13 @@ model ImpactObject {
   id               String   @id @default(uuid())
   code             String   @unique
   objectsInfluence String
-  nameuz           String
   nameru           String
   creatorId        String
   editorId         String
   removerId        String?
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
-  
+  nameuz           String
 
   @@map("ImpactObject")
 }
@@ -633,4 +631,92 @@ model EditEmployeeName {
   updatedAt DateTime @updatedAt
 
   @@map("EditEmployeeName")
+}
+
+model IdentifiedThreat {
+  id           String   @id @default(uuid())
+  code         String   @unique
+  threatSource String
+  nameuz       String
+  nameru       String
+  creatorId    String
+  editorId     String
+  removerId    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("IdentifiedThreat")
+}
+
+model IdentificationUG {
+  id            String   @id @default(uuid())
+  identifierUBI String   @unique
+  nameUBI       String
+  nameuz        String
+  nameru        String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("IdentificationUG")
+}
+
+model ImpactUG {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  nameHS    String
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ImpactUG")
+}
+
+model ExactType {
+  id              String   @id @default(uuid())
+  code            String   @unique
+  objectInfluence String
+  nameuz          String
+  nameru          String
+  creatorId       String
+  editorId        String
+  removerId       String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("ExactType")
+}
+
+model ImplementUG {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("ImplementUG")
+}
+
+model IdentifiedUG {
+  id          String   @id @default(uuid())
+  description String
+  nameuz      String
+  nameru      String
+  creatorId   String
+  editorId    String
+  removerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("IdentifiedUG")
 }
