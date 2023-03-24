@@ -274,7 +274,7 @@ model MarkLimit {
 
 model AttackedDomain {
   id            String   @id @default(uuid())
-  hosting       String   
+  hosting       String
   domainSupport String   @unique
   nameuz        String
   nameru        String
