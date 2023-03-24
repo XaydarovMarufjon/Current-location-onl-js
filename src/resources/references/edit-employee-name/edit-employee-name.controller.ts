@@ -1,5 +1,5 @@
-import { AtGuard } from './../../common/guards/at.guard';
-import { Public } from './../../common/decorators/public.decorator';
+import { AtGuard } from 'src/common/guards';
+import { Public } from 'src/common/decorators';
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { EditEmployeeNameService } from './edit-employee-name.service';
 import { CreateEditEmployeeNameDto } from './dto/create-edit-employee-name.dto';

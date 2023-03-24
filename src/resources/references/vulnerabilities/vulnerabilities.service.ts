@@ -6,7 +6,7 @@ import { UpdateVulnerabilityDto } from './dto/update-vulnerability.dto';
 
 @Injectable()
 export class VulnerabilitiesService {
-  constructor(private prisma: PrismaService) {}
+constructor(private prisma: PrismaService) {}
 async create(createVulnerabilityDto: CreateVulnerabilityDto) {
   const vulnerability = await this.prisma.vulnerability.create({
     data: { 

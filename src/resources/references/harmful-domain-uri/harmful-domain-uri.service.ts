@@ -1,3 +1,4 @@
+import { HarmfulDomainUri } from './entities/harmful-domain-uri.entity';
 import { PrismaService } from './../../../prisma/prisma.service';
 import { HarmfulDomain } from './../harmful-domain/entities/harmful-domain.entity';
 import { Injectable } from '@nestjs/common';
@@ -22,18 +23,18 @@ async  create(createHarmfulDomainUriDto: CreateHarmfulDomainUriDto) {
   }
 
   
-  async findAll(): Promise<HarmfulDomain>{
+async findAll(): Promise<HarmfulDomainUri>{
     try {
-      return await this.prisma.harmfulDomain.findMany()
+      return await this.prisma.harmfulDomainUri.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
   }
 
  
-  async findOne(id: string) : Promise<HarmfulDomain | null> {
+async findOne(id: string) : Promise<HarmfulDomainUri | null> {
     try{
-     return await this.prisma.harmfulDomain.findUnique({
+     return await this.prisma.harmfulDomainUri.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -41,9 +42,9 @@ async  create(createHarmfulDomainUriDto: CreateHarmfulDomainUriDto) {
     }
  }
 
-async update(id: string, data: UpdateHarmfulDomainUriDto): Promise<HarmfulDomain>{
+async update(id: string, data: UpdateHarmfulDomainUriDto): Promise<HarmfulDomainUri>{
    try {
-      return await this.prisma.harmfulDomain.update({
+      return await this.prisma.harmfulDomainUri.update({
        where : {id} , 
        data,
       })
@@ -54,7 +55,7 @@ async update(id: string, data: UpdateHarmfulDomainUriDto): Promise<HarmfulDomain
 
 async remove(id: string) {
     try {
-      return await this.prisma.harmfulDomain.delete({
+      return await this.prisma.harmfulDomainUri.delete({
        where :  {id},
       })
     } catch (e) {

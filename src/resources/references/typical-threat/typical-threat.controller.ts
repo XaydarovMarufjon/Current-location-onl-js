@@ -10,7 +10,7 @@ export class TypicalThreatController {
   constructor(private readonly typicalThreatService: TypicalThreatService) {}
 
   @Public()
-  @Post()
+  @Post("/create")
   create(@Body() createTypicalThreatDto: CreateTypicalThreatDto) {
     return this.typicalThreatService.create(createTypicalThreatDto);
   }

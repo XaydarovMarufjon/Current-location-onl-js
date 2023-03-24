@@ -13,11 +13,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListOrgController = void 0;
+const guards_1 = require("../../common/guards");
 const common_1 = require("@nestjs/common");
 const list_org_service_1 = require("./list-org.service");
 const create_list_org_dto_1 = require("./dto/create-list-org.dto");
 const update_list_org_dto_1 = require("./dto/update-list-org.dto");
-const guards_1 = require("../../common/guards");
 let ListOrgController = class ListOrgController {
     constructor(listOrgService) {
         this.listOrgService = listOrgService;

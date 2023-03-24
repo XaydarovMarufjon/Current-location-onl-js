@@ -1,3 +1,4 @@
+import { HarmfulDomainEmail } from './entities/harmful-domain-email.entity';
 import { PrismaService } from './../../../prisma/prisma.service';
 import { HarmfulDomain } from './../harmful-domain/entities/harmful-domain.entity';
 import { Injectable } from '@nestjs/common';
@@ -16,24 +17,24 @@ async  create(createHarmfulDomainEmailDto: CreateHarmfulDomainEmailDto) {
       nameru: createHarmfulDomainEmailDto.nameru,
       creatorId: createHarmfulDomainEmailDto.creatorId,
       editorId: createHarmfulDomainEmailDto.editorId,
-      removerId: createHarmfulDomainEmailDto.removerId,
+      removerId: createHarmfulDomainEmailDto.removerId
     }
   })
   }
 
 
-  async findAll(): Promise<HarmfulDomain>{
+  async findAll(): Promise<HarmfulDomainEmail>{
     try {
-      return await this.prisma.harmfulDomain.findMany()
+      return await this.prisma.harmfulDomainEmail.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
   }
 
  
-  async findOne(id: string) : Promise<HarmfulDomain | null> {
+  async findOne(id: string) : Promise<HarmfulDomainEmail | null> {
     try{
-     return await this.prisma.harmfulDomain.findUnique({
+     return await this.prisma.harmfulDomainEmail.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -41,9 +42,9 @@ async  create(createHarmfulDomainEmailDto: CreateHarmfulDomainEmailDto) {
     }
  }
 
-async update(id: string, data: UpdateHarmfulDomainEmailDto): Promise<HarmfulDomain>{
+async update(id: string, data: UpdateHarmfulDomainEmailDto): Promise<HarmfulDomainEmail>{
    try {
-      return await this.prisma.harmfulDomain.update({
+      return await this.prisma.harmfulDomainEmail.update({
        where : {id} , 
        data,
       })
@@ -54,7 +55,7 @@ async update(id: string, data: UpdateHarmfulDomainEmailDto): Promise<HarmfulDoma
 
 async remove(id: string) {
     try {
-      return await this.prisma.harmfulDomain.delete({
+      return await this.prisma.harmfulDomainEmail.delete({
        where :  {id},
       })
     } catch (e) {

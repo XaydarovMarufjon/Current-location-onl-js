@@ -1,4 +1,6 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { AtGuard } from 'src/common/guards';
+import { Public } from 'src/common/decorators';
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { HarmfulDomainService } from './harmful-domain.service';
 import { CreateHarmfulDomainDto } from './dto/create-harmful-domain.dto';
 import { UpdateHarmfulDomainDto } from './dto/update-harmful-domain.dto';
@@ -7,16 +9,19 @@ import { UpdateHarmfulDomainDto } from './dto/update-harmful-domain.dto';
 export class HarmfulDomainController {
   constructor(private readonly harmfulDomainService: HarmfulDomainService) {}
 
-  @Post()
+  @Public()
+  @Post("/create")
   create(@Body() createHarmfulDomainDto: CreateHarmfulDomainDto) {
     return this.harmfulDomainService.create(createHarmfulDomainDto);
   }
 
-  @Get()
+  @Public()
+  @Get("/getall")
   findAll() {
     return this.harmfulDomainService.findAll();
   }
 
+  @UseGuards(AtGuard)
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.harmfulDomainService.findOne(id);

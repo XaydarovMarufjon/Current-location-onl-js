@@ -1,5 +1,5 @@
+import { PrismaService } from 'src/prisma/prisma.service';
 import { AttackedDomainUri } from './entities/attacked-domain-uri.entity';
-import { PrismaService } from './../../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateAttackedDomainUriDto } from './dto/create-attacked-domain-uri.dto';
 import { UpdateAttackedDomainUriDto } from './dto/update-attacked-domain-uri.dto';
