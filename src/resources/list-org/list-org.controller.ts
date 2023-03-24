@@ -1,4 +1,4 @@
-import { AtGuard } from './../../../common/guards/at.guard';
+import { AtGuard } from 'src/common/guards';
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { ListOrgService } from './list-org.service';
 import { CreateListOrgDto } from './dto/create-list-org.dto';
