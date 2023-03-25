@@ -8,22 +8,22 @@ import { UpdateImpactUgDto } from './dto/update-impact-ug.dto';
 export class ImpactUgService {
   constructor(private prisma: PrismaService) {}
 async  create(createImpactUgDto: CreateImpactUgDto) {
-  const impactUg = await this.prisma.impactUg.create({
+  const impactUg = await this.prisma.impactUG.create({
     data: { 
       code : createImpactUgDto.code, 
-      nameHS: createImpactUgDto.nameHS,
+      nameUG: createImpactUgDto.nameUG,
       nameuz: createImpactUgDto.nameuz,
       nameru: createImpactUgDto.nameru,
       creatorId: createImpactUgDto.creatorId,
       editorId: createImpactUgDto.editorId,
-      removerId: createImpactUgDto.removerId,
+      removerId: createImpactUgDto.removerId
     }
   })
   }
 
   async findAll(): Promise<ImpactUg>{
     try {
-      return await this.prisma.impactUg.findMany()
+      return await this.prisma.impactUG.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
@@ -32,7 +32,7 @@ async  create(createImpactUgDto: CreateImpactUgDto) {
  
   async findOne(id: string) : Promise<ImpactUg | null> {
     try{
-     return await this.prisma.impactUg.findUnique({
+     return await this.prisma.impactUG.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -42,7 +42,7 @@ async  create(createImpactUgDto: CreateImpactUgDto) {
 
 async update(id: string, data: UpdateImpactUgDto): Promise<ImpactUg>{
    try {
-      return await this.prisma.impactUg.update({
+      return await this.prisma.impactUG.update({
        where : {id} , 
        data,
       })
@@ -53,7 +53,7 @@ async update(id: string, data: UpdateImpactUgDto): Promise<ImpactUg>{
 
 async remove(id: string) {
     try {
-      return await this.prisma.impactUg.delete({
+      return await this.prisma.impactUG.delete({
        where :  {id},
       })
     } catch (e) {

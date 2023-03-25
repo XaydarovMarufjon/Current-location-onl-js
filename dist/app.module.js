@@ -7,6 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const authorization_ug_module_1 = require("./resources/references/authorization-ug/authorization-ug.module");
+const presence_ug_module_1 = require("./resources/references/presence-ug/presence-ug.module");
+const evaluation_ug_module_1 = require("./resources/references/evaluation-ug/evaluation-ug.module");
+const consequences_ug_module_1 = require("./resources/references/consequences-ug/consequences-ug.module");
+const identified_ug_module_1 = require("./resources/references/identified-ug/identified-ug.module");
+const implement_ug_module_1 = require("./resources/references/implement-ug/implement-ug.module");
+const exact_type_module_1 = require("./resources/references/exact-type/exact-type.module");
+const impact_ug_module_1 = require("./resources/references/impact-ug/impact-ug.module");
+const identification_ug_module_1 = require("./resources/references/identification-ug/identification-ug.module");
+const identified_threat_module_1 = require("./resources/references/identified-threat/identified-threat.module");
 const subject_damage_module_1 = require("./resources/references/subject-damage/subject-damage.module");
 const group_components_module_1 = require("./resources/references/group-components/group-components.module");
 const detected_status_module_1 = require("./resources/references/detected-status/detected-status.module");
@@ -94,7 +104,17 @@ AppModule = __decorate([
             edit_employee_name_module_1.EditEmployeeNameModule,
             detected_status_module_1.DetectedStatusModule,
             group_components_module_1.GroupComponentsModule,
-            subject_damage_module_1.SubjectDamageModule
+            subject_damage_module_1.SubjectDamageModule,
+            identified_threat_module_1.IdentifiedThreatModule,
+            identification_ug_module_1.IdentificationUgModule,
+            impact_ug_module_1.ImpactUgModule,
+            exact_type_module_1.ExactTypeModule,
+            implement_ug_module_1.ImplementUgModule,
+            identified_ug_module_1.IdentifiedUgModule,
+            consequences_ug_module_1.ConsequencesUgModule,
+            evaluation_ug_module_1.EvaluationUgModule,
+            presence_ug_module_1.PresenceUgModule,
+            authorization_ug_module_1.AuthorizationUgModule,
         ],
         controllers: [],
         providers: [

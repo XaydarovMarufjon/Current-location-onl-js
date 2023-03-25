@@ -1,7 +1,7 @@
 import { Field } from "@nestjs/graphql";
 import {  IsNotEmpty,  IsString } from "class-validator";
 
-export class CreateImpactUgDto {
+export class CreateConsequencesUgDto {
 
     @IsString()
     @Field()
@@ -9,7 +9,7 @@ export class CreateImpactUgDto {
 
     @IsString()
     @Field()
-    nameUG: string;
+    name: string;
     
     @IsNotEmpty()
     @IsString()

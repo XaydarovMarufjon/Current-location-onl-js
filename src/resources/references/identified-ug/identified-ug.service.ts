@@ -7,8 +7,9 @@ import { UpdateIdentifiedUgDto } from './dto/update-identified-ug.dto';
 @Injectable()
 export class IdentifiedUgService {
   constructor(private prisma: PrismaService) {}
+  
 async  create(createIdentifiedUgDto: CreateIdentifiedUgDto) {
-    const identifiedUg = await this.prisma.identifiedUg.create({
+    const identifiedUG = await this.prisma.identifiedUG.create({
       data: { 
         description : createIdentifiedUgDto.description, 
         nameuz: createIdentifiedUgDto.nameuz,
@@ -22,7 +23,7 @@ async  create(createIdentifiedUgDto: CreateIdentifiedUgDto) {
 
   async findAll(): Promise<IdentifiedUg>{
     try {
-      return await this.prisma.identifiedUg.findMany()
+      return await this.prisma.identifiedUG.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
@@ -31,7 +32,7 @@ async  create(createIdentifiedUgDto: CreateIdentifiedUgDto) {
  
   async findOne(id: string) : Promise<IdentifiedUg | null> {
     try{
-     return await this.prisma.identifiedUg.findUnique({
+     return await this.prisma.identifiedUG.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -41,7 +42,7 @@ async  create(createIdentifiedUgDto: CreateIdentifiedUgDto) {
 
 async update(id: string, data: UpdateIdentifiedUgDto): Promise<IdentifiedUg>{
    try {
-      return await this.prisma.identifiedUg.update({
+      return await this.prisma.identifiedUG.update({
        where : {id} , 
        data,
       })
@@ -52,7 +53,7 @@ async update(id: string, data: UpdateIdentifiedUgDto): Promise<IdentifiedUg>{
 
 async remove(id: string) {
     try {
-      return await this.prisma.identifiedUg.delete({
+      return await this.prisma.identifiedUG.delete({
        where :  {id},
       })
     } catch (e) {

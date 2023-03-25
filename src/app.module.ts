@@ -1,3 +1,7 @@
+import { AuthorizationUgModule } from './resources/references/authorization-ug/authorization-ug.module';
+import { PresenceUgModule } from './resources/references/presence-ug/presence-ug.module';
+import { EvaluationUgModule } from './resources/references/evaluation-ug/evaluation-ug.module';
+import { ConsequencesUgModule } from './resources/references/consequences-ug/consequences-ug.module';
 import { IdentifiedUgModule } from './resources/references/identified-ug/identified-ug.module';
 import { ImplementUgModule } from './resources/references/implement-ug/implement-ug.module';
 import { ExactTypeModule } from './resources/references/exact-type/exact-type.module';
@@ -95,8 +99,12 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     ImpactUgModule,
     ExactTypeModule,
     ImplementUgModule,
-    IdentifiedUgModule
-
+    IdentifiedUgModule,
+    ConsequencesUgModule,
+    EvaluationUgModule,
+    PresenceUgModule,
+    AuthorizationUgModule,
+    
 
     
   ],

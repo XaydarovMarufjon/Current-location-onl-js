@@ -8,7 +8,7 @@ import { UpdateImplementUgDto } from './dto/update-implement-ug.dto';
 export class ImplementUgService {
 constructor(private prisma: PrismaService) {}
 async  create(createImplementUgDto: CreateImplementUgDto) {
-  const implementUg = await this.prisma.implementUg.create({
+  const implementUG = await this.prisma.implementUG.create({
     data: { 
       name: createImplementUgDto.name,
       nameuz: createImplementUgDto.nameuz,
@@ -22,7 +22,7 @@ async  create(createImplementUgDto: CreateImplementUgDto) {
 
 async findAll(): Promise<ImplementUg>{
     try {
-      return await this.prisma.implementUg.findMany()
+      return await this.prisma.implementUG.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
@@ -30,7 +30,7 @@ async findAll(): Promise<ImplementUg>{
  
 async findOne(id: string) : Promise<ImplementUg | null> {
     try{
-     return await this.prisma.implementUg.findUnique({
+     return await this.prisma.implementUG.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -40,7 +40,7 @@ async findOne(id: string) : Promise<ImplementUg | null> {
 
 async update(id: string, data: UpdateImplementUgDto): Promise<ImplementUg>{
    try {
-      return await this.prisma.implementUg.update({
+      return await this.prisma.implementUG.update({
        where : {id} , 
        data,
       })
@@ -51,7 +51,7 @@ async update(id: string, data: UpdateImplementUgDto): Promise<ImplementUg>{
 
 async remove(id: string) {
     try {
-      return await this.prisma.implementUg.delete({
+      return await this.prisma.implementUG.delete({
        where :  {id},
       })
     } catch (e) {

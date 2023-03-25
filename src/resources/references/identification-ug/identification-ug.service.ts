@@ -8,7 +8,7 @@ import { UpdateIdentificationUgDto } from './dto/update-identification-ug.dto';
 export class IdentificationUgService {
   constructor(private prisma: PrismaService) {}
 async create(createIdentificationUgDto: CreateIdentificationUgDto) {
-    const identificationUg = await this.prisma.identificationUg.create({
+    const identificationUG = await this.prisma.identificationUG.create({
       data: { 
         identifierUBI : createIdentificationUgDto.identifierUBI, 
         nameUBI: createIdentificationUgDto.nameUBI,
@@ -23,7 +23,7 @@ async create(createIdentificationUgDto: CreateIdentificationUgDto) {
 
   async findAll(): Promise<IdentificationUg>{
     try {
-      return await this.prisma.identificationUg.findMany()
+      return await this.prisma.identificationUG.findMany()
     } catch (error) {
       throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
     }
@@ -32,7 +32,7 @@ async create(createIdentificationUgDto: CreateIdentificationUgDto) {
  
   async findOne(id: string) : Promise<IdentificationUg | null> {
     try{
-     return await this.prisma.identificationUg.findUnique({
+     return await this.prisma.identificationUG.findUnique({
        where:{ id }
      });
     } catch (e) { 
@@ -42,7 +42,7 @@ async create(createIdentificationUgDto: CreateIdentificationUgDto) {
 
 async update(id: string, data: UpdateIdentificationUgDto): Promise<IdentificationUg>{
    try {
-      return await this.prisma.identificationUg.update({
+      return await this.prisma.identificationUG.update({
        where : {id} , 
        data,
       })
@@ -53,7 +53,7 @@ async update(id: string, data: UpdateIdentificationUgDto): Promise<Identificatio
 
 async remove(id: string) {
     try {
-      return await this.prisma.identificationUg.delete({
+      return await this.prisma.identificationUG.delete({
        where :  {id},
       })
     } catch (e) {
