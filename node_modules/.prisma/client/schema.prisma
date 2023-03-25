@@ -780,3 +780,49 @@ model AuthorizationUG {
 
   @@map("AuthorizationUG")
 }
+
+model MacroRegional {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  macroRegion String
+  nameuz      String
+  nameru      String
+  creatorId   String
+  editorId    String
+  removerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("MacroRegional")
+}
+
+model GeographicalRegion {
+  id         String   @id @default(uuid())
+  code       String   @unique
+  geoRegions String
+  nameuz     String
+  nameru     String
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("GeographicalRegion")
+}
+
+model Country {
+  id                String   @id @default(uuid())
+  digitalCode       String   @unique
+  stateName         String
+  letterCountryCode String
+  nameuz            String
+  nameru            String
+  creatorId         String
+  editorId          String
+  removerId         String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@map("Country")
+}

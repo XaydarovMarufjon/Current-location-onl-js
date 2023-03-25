@@ -7,6 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const country_module_1 = require("./resources/references/country/country.module");
+const geographical_region_module_1 = require("./resources/references/geographical-region/geographical-region.module");
+const macro_regional_module_1 = require("./resources/references/macro-regional/macro-regional.module");
 const authorization_ug_module_1 = require("./resources/references/authorization-ug/authorization-ug.module");
 const presence_ug_module_1 = require("./resources/references/presence-ug/presence-ug.module");
 const evaluation_ug_module_1 = require("./resources/references/evaluation-ug/evaluation-ug.module");
@@ -115,6 +118,9 @@ AppModule = __decorate([
             evaluation_ug_module_1.EvaluationUgModule,
             presence_ug_module_1.PresenceUgModule,
             authorization_ug_module_1.AuthorizationUgModule,
+            macro_regional_module_1.MacroRegionalModule,
+            geographical_region_module_1.GeographicalRegionModule,
+            country_module_1.CountryModule,
         ],
         controllers: [],
         providers: [

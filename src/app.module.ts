@@ -1,3 +1,6 @@
+import { CountryModule } from './resources/references/country/country.module';
+import { GeographicalRegionModule } from './resources/references/geographical-region/geographical-region.module';
+import { MacroRegionalModule } from './resources/references/macro-regional/macro-regional.module';
 import { AuthorizationUgModule } from './resources/references/authorization-ug/authorization-ug.module';
 import { PresenceUgModule } from './resources/references/presence-ug/presence-ug.module';
 import { EvaluationUgModule } from './resources/references/evaluation-ug/evaluation-ug.module';
@@ -104,6 +107,9 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     EvaluationUgModule,
     PresenceUgModule,
     AuthorizationUgModule,
+    MacroRegionalModule,
+    GeographicalRegionModule,
+    CountryModule,
     
 
     
