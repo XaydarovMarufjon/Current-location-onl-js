@@ -1,6 +1,7 @@
 const findLocation = () => { 
 
   const status = document.querySelector(".status")
+  const map = document.querySelector(".map")
 
   const success = (position) =>{
       
@@ -9,6 +10,7 @@ const findLocation = () => {
       const longitude = position.coords.longitude;
 
       console.log(latitude , longitude);
+      map.innerHTML = `<iframe  width="100%" height="500" src="https://maps.google.com/maps?q=${latitude},${longitude}&amp;z=15&amp;output=embed"></iframe>`
 
       const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en `
  
@@ -16,7 +18,8 @@ const findLocation = () => {
       .then(res => res.json())
       .then( data => {
         console.log(data);
-        status.innerHTML = ` ${data.principalSubdivision  } , ${data.locality}`
+        status.innerHTML = `${data.countryName} , ${data.principalSubdivision  } , ${data.locality}`
+        
       })
  
     }
@@ -30,5 +33,10 @@ const findLocation = () => {
 }
 
 document.querySelector(".find-state").addEventListener("click" , findLocation)
+
+
+window.onload = (event) => {
+  findLocation()
+};
 
 
