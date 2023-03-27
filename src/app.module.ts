@@ -1,3 +1,5 @@
+import { CityModule } from './resources/references/city/city.module';
+import { RegionModule } from './resources/references/region/region.module';
 import { CountryModule } from './resources/references/country/country.module';
 import { GeographicalRegionModule } from './resources/references/geographical-region/geographical-region.module';
 import { MacroRegionalModule } from './resources/references/macro-regional/macro-regional.module';
@@ -110,8 +112,9 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     MacroRegionalModule,
     GeographicalRegionModule,
     CountryModule,
+    RegionModule,
+    CityModule, 
     
-
     
   ],
   controllers: [],

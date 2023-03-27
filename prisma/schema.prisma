@@ -782,17 +782,18 @@ model AuthorizationUG {
 }
 
 model MacroRegional {
-  id          String   @id @default(uuid())
-  code        String   @unique
+  id          String    @id @default(uuid())
+  code        String    @unique
   macroRegion String
   nameuz      String
   nameru      String
   creatorId   String
   editorId    String
   removerId   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  country     Country[]
+
   @@map("MacroRegional")
 }
 
@@ -812,22 +813,56 @@ model GeographicalRegion {
 }
 
 model Country {
-  id                String   @id @default(uuid())
-  digitalCode       String   @unique
-  stateName         String
-  letterCountryCode String
-  countryId         String
+  id                String        @id @default(uuid())
+  name              String
   nameuz            String
   nameru            String
   creatorId         String
   editorId          String
   removerId         String?
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  macroRegional     MacroRegional @relation(fields: [countryId] , references: [id])
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  digitalCode       String        @unique
+  letterCountryCode String
+  countryId         String
+  macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
+  region            Region[] 
 
   @@map("Country")
-}    
+}
+
+model Region {
+  id         String   @id @default(uuid())
+  name       String   @unique
+  nameuz     String
+  nameru     String
+  regionId   String
+  country    Country  @relation(fields: [regionId], references: [id])
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("Region")
+}
+
+
+
+model City {
+  id         String   @id @default(uuid())
+  cityName   String   @unique
+  // cityId     String 
+  nameuz     String
+  nameru     String
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("City")
+}
 
 
 
