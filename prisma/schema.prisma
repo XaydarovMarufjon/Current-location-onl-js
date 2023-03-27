@@ -792,7 +792,7 @@ model MacroRegional {
   removerId   String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
+  
   @@map("MacroRegional")
 }
 
@@ -816,6 +816,7 @@ model Country {
   digitalCode       String   @unique
   stateName         String
   letterCountryCode String
+  countryId         String
   nameuz            String
   nameru            String
   creatorId         String
@@ -823,6 +824,16 @@ model Country {
   removerId         String?
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
+  macroRegional     MacroRegional @relation(fields: [countryId] , references: [id])
 
   @@map("Country")
-}
+}    
+
+
+
+
+
+
+
+
+
