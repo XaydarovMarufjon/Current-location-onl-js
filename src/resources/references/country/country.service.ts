@@ -11,7 +11,7 @@ async  create(createCountryDto: CreateCountryDto) {
     const country = await this.prisma.country.create({
       data: { 
         digitalCode : createCountryDto.digitalCode, 
-        stateName: createCountryDto.stateName,
+        name: createCountryDto.name,
         letterCountryCode: createCountryDto.letterCountryCode,
         nameuz: createCountryDto.nameuz,
         nameru: createCountryDto.nameru,
@@ -61,4 +61,5 @@ async  create(createCountryDto: CreateCountryDto) {
          throw new Error(`O'chirishda xatolik yuzaga keldi id : ${id} , xatolik ${e.message}`)
       }
    }
+   
   }

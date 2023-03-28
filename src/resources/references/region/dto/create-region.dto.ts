@@ -4,7 +4,7 @@ import {  IsNotEmpty,  IsString } from "class-validator";
 export class CreateRegionDto { 
     @IsString()
     @Field()
-    regionName: string;
+    name: string;
 
     @IsNotEmpty()
     @IsString()

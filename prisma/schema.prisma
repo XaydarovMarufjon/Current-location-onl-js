@@ -814,19 +814,19 @@ model GeographicalRegion {
 
 model Country {
   id                String        @id @default(uuid())
-  name              String
+  digitalCode       String        
+  name              String        @unique
+  letterCountryCode String
   nameuz            String
   nameru            String
+  countryId         String
+  macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
+  region            Region[]
   creatorId         String
   editorId          String
   removerId         String?
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
-  digitalCode       String        @unique
-  letterCountryCode String
-  countryId         String
-  macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
-  region            Region[]
 
   @@map("Country")
 }
@@ -838,6 +838,7 @@ model Region {
   nameru    String
   regionId  String
   country   Country  @relation(fields: [regionId], references: [id])
+  district  District[]
   creatorId String
   editorId  String
   removerId String?
@@ -848,16 +849,34 @@ model Region {
 }
 
 model District {
-  id        String   @id @default(uuid())
-  name      String   @unique
-  // cityId     String 
-  nameuz    String
-  nameru    String
-  creatorId String
-  editorId  String
-  removerId String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(uuid())
+  name       String   @unique
+  districtId String 
+  region        Region  @relation(fields: [districtId], references: [id])
+  neighborhood  Neighborhood[]
+  nameuz     String
+  nameru     String
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 
   @@map("District")
+}
+
+model Neighborhood {
+  id         String   @id @default(uuid())
+  name       String   @unique
+  neighborhoodId String 
+  district       District  @relation(fields: [neighborhoodId], references: [id])
+  nameuz     String
+  nameru     String
+  creatorId  String
+  editorId   String
+  removerId  String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("Neighborhood")
 }

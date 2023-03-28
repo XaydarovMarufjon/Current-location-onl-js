@@ -10,7 +10,7 @@ export class RegionService {
  async create(createRegionDto: CreateRegionDto) {
   const region = await this.prisma.region.create({
     data: { 
-      regionName : createRegionDto.regionName, 
+      name : createRegionDto.name, 
       nameuz: createRegionDto.nameuz,
       nameru: createRegionDto.nameru,
       creatorId: createRegionDto.creatorId,

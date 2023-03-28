@@ -1,3 +1,4 @@
+import { NeighborhoodModule } from './resources/references/neighborhood/neighborhood.module';
 import { DistrictModule } from './resources/references/district/district.module';
 import { RegionModule } from './resources/references/region/region.module';
 import { CountryModule } from './resources/references/country/country.module';
@@ -114,6 +115,7 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     CountryModule,
     RegionModule,
     DistrictModule, 
+    NeighborhoodModule,
     
     
   ],
