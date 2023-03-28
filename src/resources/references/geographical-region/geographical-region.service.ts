@@ -11,7 +11,7 @@ async  create(createGeographicalRegionDto: CreateGeographicalRegionDto) {
     const geographicalRegion = await this.prisma.geographicalRegion.create({
       data: { 
         code : createGeographicalRegionDto.code, 
-        geoRegions: createGeographicalRegionDto.geoRegions,
+        name: createGeographicalRegionDto.name,
         nameuz: createGeographicalRegionDto.nameuz,
         nameru: createGeographicalRegionDto.nameru,
         creatorId: createGeographicalRegionDto.creatorId,

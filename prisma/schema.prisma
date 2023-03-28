@@ -784,9 +784,10 @@ model AuthorizationUG {
 model MacroRegional {
   id          String    @id @default(uuid())
   code        String    @unique
-  macroRegion String
+  name        String
   nameuz      String
   nameru      String
+  address     Address[]
   creatorId   String
   editorId    String
   removerId   String?
@@ -800,7 +801,7 @@ model MacroRegional {
 model GeographicalRegion {
   id         String   @id @default(uuid())
   code       String   @unique
-  geoRegions String
+  name       String
   nameuz     String
   nameru     String
   creatorId  String
@@ -814,11 +815,11 @@ model GeographicalRegion {
 
 model Country {
   id                String        @id @default(uuid())
-  digitalCode       String        
   name              String        @unique
-  letterCountryCode String
   nameuz            String
   nameru            String
+  digitalCode       String        
+  letterCountryCode String
   countryId         String
   macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
   region            Region[]
@@ -879,4 +880,21 @@ model Neighborhood {
   updatedAt  DateTime @updatedAt
 
   @@map("Neighborhood")
+}
+
+model Address {
+  id            String @id @default(uuid())
+  macroRegionId String
+  macroRegion MacroRegional @relation(fields: [macroRegionId], references: [id])
+  houseId   Int
+  flatId    Int
+  homeId    Int
+  postCode  Int
+  geoLocation String
+  moreInfo    String
+  creatorId   String
+  editorId    String
+  removerId   String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt    
 }

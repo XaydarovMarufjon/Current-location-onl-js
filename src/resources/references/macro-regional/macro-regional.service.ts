@@ -11,7 +11,7 @@ async  create(createMacroRegionalDto: CreateMacroRegionalDto) {
   const macroRegional = await this.prisma.macroRegional.create({
     data: { 
       code : createMacroRegionalDto.code, 
-      macroRegion: createMacroRegionalDto.macroRegion,
+      name: createMacroRegionalDto.name,
       nameuz: createMacroRegionalDto.nameuz,
       nameru: createMacroRegionalDto.nameru,
       creatorId: createMacroRegionalDto.creatorId,

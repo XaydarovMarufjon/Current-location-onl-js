@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
+const address_module_1 = require("./resources/references/address/address.module");
 const neighborhood_module_1 = require("./resources/references/neighborhood/neighborhood.module");
 const district_module_1 = require("./resources/references/district/district.module");
 const region_module_1 = require("./resources/references/region/region.module");
@@ -127,6 +128,7 @@ AppModule = __decorate([
             region_module_1.RegionModule,
             district_module_1.DistrictModule,
             neighborhood_module_1.NeighborhoodModule,
+            address_module_1.AddressModule,
         ],
         controllers: [],
         providers: [

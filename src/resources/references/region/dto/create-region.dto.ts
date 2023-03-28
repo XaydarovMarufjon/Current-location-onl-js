@@ -1,3 +1,4 @@
+import { Country } from './../../country/entities/country.entity';
 import { Field } from "@nestjs/graphql";
 import {  IsNotEmpty,  IsString } from "class-validator";
 
@@ -15,6 +16,11 @@ export class CreateRegionDto {
     @IsString()
     @Field()
     nameru: string;
+
+    @IsNotEmpty()
+    @IsString()
+    @Field()
+    countryId: Country;
 
     @IsNotEmpty()
     @IsString()

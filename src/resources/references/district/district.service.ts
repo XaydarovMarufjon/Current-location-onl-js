@@ -11,6 +11,7 @@ async  create(createDistrictDto: CreateDistrictDto) {
     const district = await this.prisma.district.create({
       data: { 
         name : createDistrictDto.name, 
+        region : createDistrictDto.regionId,
         nameuz: createDistrictDto.nameuz,
         nameru: createDistrictDto.nameru,
         creatorId: createDistrictDto.creatorId,

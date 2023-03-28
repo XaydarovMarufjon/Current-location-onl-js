@@ -13,6 +13,7 @@ async  create(createCountryDto: CreateCountryDto) {
         digitalCode : createCountryDto.digitalCode, 
         name: createCountryDto.name,
         letterCountryCode: createCountryDto.letterCountryCode,
+        macroRegional: createCountryDto.macroRegionalId,
         nameuz: createCountryDto.nameuz,
         nameru: createCountryDto.nameru,
         creatorId: createCountryDto.creatorId,

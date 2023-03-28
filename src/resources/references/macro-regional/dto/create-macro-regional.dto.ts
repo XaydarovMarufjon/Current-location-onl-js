@@ -8,7 +8,7 @@ export class CreateMacroRegionalDto {
 
     @IsString()
     @Field()
-    macroRegion: string;
+    name: string;
     
     @IsNotEmpty()
     @IsString()

@@ -9,7 +9,7 @@ export class CreateGeographicalRegionDto {
 
     @IsString()
     @Field()
-    geoRegions: string;
+    name: string;
     
     @IsNotEmpty()
     @IsString()

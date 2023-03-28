@@ -13,6 +13,7 @@ export class RegionService {
       name : createRegionDto.name, 
       nameuz: createRegionDto.nameuz,
       nameru: createRegionDto.nameru,
+      country: createRegionDto.countryId,
       creatorId: createRegionDto.creatorId,
       editorId: createRegionDto.editorId,
       removerId: createRegionDto.removerId,
@@ -24,7 +25,7 @@ export class RegionService {
     try {
       return await this.prisma.region.findMany()
     } catch (error) {
-      throw new Error(`SerciseSUE barcha malumot chiqarishda xatolik `)
+      throw new Error(`Region barcha malumot chiqarishda xatolik `)
     }
   }
 
