@@ -1,10 +1,11 @@
 import { Field } from "@nestjs/graphql";
 import {  IsNotEmpty,  IsString } from "class-validator";
 
-export class CreateCityDto {
+export class CreateDistrictDto {
+
     @IsString()
     @Field()
-    cityName: string;
+    name: string;
 
     @IsNotEmpty()
     @IsString()

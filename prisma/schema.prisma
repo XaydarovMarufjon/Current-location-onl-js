@@ -826,49 +826,38 @@ model Country {
   letterCountryCode String
   countryId         String
   macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
-  region            Region[] 
+  region            Region[]
 
   @@map("Country")
 }
 
 model Region {
-  id         String   @id @default(uuid())
-  name       String   @unique
-  nameuz     String
-  nameru     String
-  regionId   String
-  country    Country  @relation(fields: [regionId], references: [id])
-  creatorId  String
-  editorId   String
-  removerId  String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id        String   @id @default(uuid())
+  name      String   @unique
+  nameuz    String
+  nameru    String
+  regionId  String
+  country   Country  @relation(fields: [regionId], references: [id])
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("Region")
 }
 
-
-
-model City {
-  id         String   @id @default(uuid())
-  cityName   String   @unique
+model District {
+  id        String   @id @default(uuid())
+  name      String   @unique
   // cityId     String 
-  nameuz     String
-  nameru     String
-  creatorId  String
-  editorId   String
-  removerId  String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
-  @@map("City")
+  @@map("District")
 }
-
-
-
-
-
-
-
-
-

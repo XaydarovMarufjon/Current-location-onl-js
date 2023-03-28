@@ -1,4 +1,4 @@
-import { CityModule } from './resources/references/city/city.module';
+import { DistrictModule } from './resources/references/district/district.module';
 import { RegionModule } from './resources/references/region/region.module';
 import { CountryModule } from './resources/references/country/country.module';
 import { GeographicalRegionModule } from './resources/references/geographical-region/geographical-region.module';
@@ -113,7 +113,7 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     GeographicalRegionModule,
     CountryModule,
     RegionModule,
-    CityModule, 
+    DistrictModule, 
     
     
   ],
