@@ -28,10 +28,10 @@ export class CountryController {
     return this.countryService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCountryDto: UpdateCountryDto) {
-    return this.countryService.update(id, updateCountryDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateCountryDto: UpdateCountryDto) {
+  //   return this.countryService.update(id, updateCountryDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

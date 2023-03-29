@@ -13,12 +13,14 @@ export class RegionService {
       name : createRegionDto.name, 
       nameuz: createRegionDto.nameuz,
       nameru: createRegionDto.nameru,
-      country: createRegionDto.countryId,
+      countryId: createRegionDto.country,
       creatorId: createRegionDto.creatorId,
       editorId: createRegionDto.editorId,
       removerId: createRegionDto.removerId,
     }
   })
+
+  return region;
 }
 
   async findAll(): Promise<Region>{
@@ -40,16 +42,16 @@ export class RegionService {
     }
  }
 
-async update(id: string, data: UpdateRegionDto): Promise<Region>{
-   try {
-      return await this.prisma.region.update({
-       where : {id} , 
-       data,
-      })
-   } catch (e) { 
-     throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
-   }
- }
+// async update(id: string, data: UpdateRegionDto): Promise<Region>{
+//    try {
+//       return await this.prisma.region.update({
+//        where : {id} , 
+//        data,
+//       })
+//    } catch (e) { 
+//      throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
+//    }
+//  }
 
 async remove(id: string) {
     try {

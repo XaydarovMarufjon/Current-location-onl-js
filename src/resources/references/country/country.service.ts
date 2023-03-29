@@ -13,7 +13,7 @@ async  create(createCountryDto: CreateCountryDto) {
         digitalCode : createCountryDto.digitalCode, 
         name: createCountryDto.name,
         letterCountryCode: createCountryDto.letterCountryCode,
-        macroRegional: createCountryDto.macroRegionalId,
+        continentId: createCountryDto.continent,
         nameuz: createCountryDto.nameuz,
         nameru: createCountryDto.nameru,
         creatorId: createCountryDto.creatorId,
@@ -21,6 +21,8 @@ async  create(createCountryDto: CreateCountryDto) {
         removerId: createCountryDto.removerId,
       }
     })
+
+    return country;
   }
   
     async findAll(): Promise<Country>{
@@ -42,16 +44,16 @@ async  create(createCountryDto: CreateCountryDto) {
       }
    }
   
-  async update(id: string, data: UpdateCountryDto): Promise<Country>{
-     try {
-        return await this.prisma.country.update({
-         where : {id} , 
-         data,
-        })
-     } catch (e) { 
-       throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
-     }
-   }
+  // async update(id: string, data: UpdateCountryDto): Promise<Country>{
+  //    try {
+  //       return await this.prisma.country.update({
+  //        where : {id} , 
+  //        data,
+  //       })
+  //    } catch (e) { 
+  //      throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
+  //    }
+  //  }
   
   async remove(id: string) {
       try {

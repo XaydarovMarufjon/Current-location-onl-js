@@ -27,10 +27,10 @@ export class NeighborhoodController {
     return this.neighborhoodService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateNeighborhoodDto: UpdateNeighborhoodDto) {
-    return this.neighborhoodService.update(id, updateNeighborhoodDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateNeighborhoodDto: UpdateNeighborhoodDto) {
+  //   return this.neighborhoodService.update(id, updateNeighborhoodDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

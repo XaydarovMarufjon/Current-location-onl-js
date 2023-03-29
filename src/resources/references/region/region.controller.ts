@@ -27,10 +27,10 @@ export class RegionController {
     return this.regionService.findOne( id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRegionDto: UpdateRegionDto) {
-    return this.regionService.update( id, updateRegionDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateRegionDto: UpdateRegionDto) {
+  //   return this.regionService.update( id, updateRegionDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

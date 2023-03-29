@@ -1,34 +1,28 @@
-import { MacroRegional } from './../../macro-regional/entities/macro-regional.entity';
 import { Field } from "@nestjs/graphql";
-import {  IsNotEmpty,  IsString } from "class-validator";
+import {  IsNotEmpty,  IsNumber,  IsString } from "class-validator";
 
 export class CreateAddressDto {
 
     @IsString()
     @Field()
-    houseId: number;
+    houseNum: string;
 
-    @IsNotEmpty()
+    @IsNumber()
+    @Field()
+    flatNum: number;
+
     @IsString()
     @Field()
-    flatId: number;
+    homeNum: string;
 
-    @IsNotEmpty()
-    @IsString()
-    @Field()
-    homeId: number;
-
-    @IsNotEmpty()
-    @IsString()
+    @IsNumber()
     @Field()
     postCode: number;
  
-    @IsNotEmpty()
     @IsString()
     @Field()
     geoLocation: string;
   
-    @IsNotEmpty()
     @IsString()
     @Field()
     moreInfo: string;
@@ -36,7 +30,24 @@ export class CreateAddressDto {
     @IsNotEmpty()
     @IsString()
     @Field()
-    macroRegionalId: MacroRegional  ;
+    continent: string;
+  
+    @IsNotEmpty()
+    @IsString()
+    @Field()
+    country: string;
+  
+    @IsString()
+    @Field()
+    region: string;
+  
+    @IsString()
+    @Field()
+    district: string;
+  
+    @IsString()
+    @Field()
+    neighborhood: string;
 
     @IsNotEmpty()
     @IsString()

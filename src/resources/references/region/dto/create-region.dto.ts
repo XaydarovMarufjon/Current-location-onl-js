@@ -20,7 +20,7 @@ export class CreateRegionDto {
     @IsNotEmpty()
     @IsString()
     @Field()
-    countryId: Country;
+    country: string;
 
     @IsNotEmpty()
     @IsString()

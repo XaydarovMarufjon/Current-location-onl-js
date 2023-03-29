@@ -11,7 +11,7 @@ export class CreateNeighborhoodDto {
     @IsNotEmpty()
     @IsString()
     @Field()
-    districtId: District;
+    district: string;
 
     @IsNotEmpty()
     @IsString()

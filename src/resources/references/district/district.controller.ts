@@ -1,5 +1,5 @@
-import { AtGuard } from 'src/common/guards';
-import { Public } from 'src/common/decorators';
+import { Public } from './../../../common/decorators/public.decorator';
+import { AtGuard } from './../../../common/guards/at.guard';
 import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@nestjs/common';
 import { DistrictService } from './district.service';
 import { CreateDistrictDto } from './dto/create-district.dto';
@@ -8,8 +8,7 @@ import { UpdateDistrictDto } from './dto/update-district.dto';
 @Controller('district')
 export class DistrictController {
   constructor(private readonly districtService: DistrictService) {}
-
-
+  
   @Public()
   @Post("/create")
   create(@Body() createDistrictDto: CreateDistrictDto) {
@@ -28,10 +27,10 @@ export class DistrictController {
     return this.districtService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateDistrictDto: UpdateDistrictDto) {
-    return this.districtService.update(id, updateDistrictDto);
-  }
+  // @Patch(':id')
+  // update(@Param('id') id: string, @Body() updateDistrictDto: UpdateDistrictDto) {
+  //   return this.districtService.update(id, updateDistrictDto);
+  // }
 
   @Delete(':id')
   remove(@Param('id') id: string) {

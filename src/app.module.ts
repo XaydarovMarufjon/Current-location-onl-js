@@ -1,10 +1,9 @@
+import { ContinentModule } from './resources/references/continent/continent.module';
 import { AddressModule } from './resources/references/address/address.module';
 import { NeighborhoodModule } from './resources/references/neighborhood/neighborhood.module';
 import { DistrictModule } from './resources/references/district/district.module';
 import { RegionModule } from './resources/references/region/region.module';
 import { CountryModule } from './resources/references/country/country.module';
-import { GeographicalRegionModule } from './resources/references/geographical-region/geographical-region.module';
-import { MacroRegionalModule } from './resources/references/macro-regional/macro-regional.module';
 import { AuthorizationUgModule } from './resources/references/authorization-ug/authorization-ug.module';
 import { PresenceUgModule } from './resources/references/presence-ug/presence-ug.module';
 import { EvaluationUgModule } from './resources/references/evaluation-ug/evaluation-ug.module';
@@ -111,13 +110,14 @@ import { TypicalThreatModule } from './resources/references/typical-threat/typic
     EvaluationUgModule,
     PresenceUgModule,
     AuthorizationUgModule,
-    MacroRegionalModule,
-    GeographicalRegionModule,
     CountryModule,
     RegionModule,
     DistrictModule, 
     NeighborhoodModule,
     AddressModule,
+    ContinentModule,
+
+
     
   ],
   controllers: [],

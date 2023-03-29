@@ -781,87 +781,76 @@ model AuthorizationUG {
   @@map("AuthorizationUG")
 }
 
-model MacroRegional {
-  id          String    @id @default(uuid())
-  code        String    @unique
-  name        String
-  nameuz      String
-  nameru      String
-  address     Address[]
-  creatorId   String
-  editorId    String
-  removerId   String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  country     Country[]
+model Continent {
+  id        String    @id @default(uuid()) @unique
+  code      String    @unique
+  nameuz    String
+  nameru    String
+  creatorId String
+  editorId  String
+  removerId String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  name      String
+  address   Address[]
+  country   Country[]
 
-  @@map("MacroRegional")
-}
-
-model GeographicalRegion {
-  id         String   @id @default(uuid())
-  code       String   @unique
-  name       String
-  nameuz     String
-  nameru     String
-  creatorId  String
-  editorId   String
-  removerId  String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@map("GeographicalRegion")
+  @@map("Continent")
 }
 
 model Country {
-  id                String        @id @default(uuid())
-  name              String        @unique
+  id                String        @id @default(uuid()) @unique
   nameuz            String
   nameru            String
-  digitalCode       String        
-  letterCountryCode String
-  countryId         String
-  macroRegional     MacroRegional @relation(fields: [countryId], references: [id])
-  region            Region[]
   creatorId         String
   editorId          String
   removerId         String?
   createdAt         DateTime      @default(now())
   updatedAt         DateTime      @updatedAt
+  digitalCode       String
+  letterCountryCode String
+  name              String        @unique
+  continentId       String
+  continent     Continent @relation(fields: [continentId], references: [id])
+  region            Region[]
+  address   Address[]
+
 
   @@map("Country")
 }
 
 model Region {
-  id        String   @id @default(uuid())
-  name      String   @unique
+  id        String     @id @default(uuid())
   nameuz    String
   nameru    String
-  regionId  String
-  country   Country  @relation(fields: [regionId], references: [id])
-  district  District[]
   creatorId String
   editorId  String
   removerId String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  name      String     @unique
+  countryId String
+  country   Country    @relation(fields: [countryId], references: [id])
+  address   Address[]
+  district  District[]
 
   @@map("Region")
 }
 
 model District {
-  id         String   @id @default(uuid())
-  name       String   @unique
-  districtId String 
-  region        Region  @relation(fields: [districtId], references: [id])
-  neighborhood  Neighborhood[]
-  nameuz     String
-  nameru     String
-  creatorId  String
-  editorId   String
-  removerId  String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
+  id             String         @id @default(uuid())
+  name           String         @unique
+  nameuz         String
+  nameru         String
+  creatorId      String
+  editorId       String
+  removerId      String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  regionId       String
+  region         Region         @relation(fields: [regionId], references: [id])
+  neighborhood   Neighborhood[]
+  sddress Address[]
 
   @@map("District")
 }
@@ -869,8 +858,6 @@ model District {
 model Neighborhood {
   id         String   @id @default(uuid())
   name       String   @unique
-  neighborhoodId String 
-  district       District  @relation(fields: [neighborhoodId], references: [id])
   nameuz     String
   nameru     String
   creatorId  String
@@ -878,23 +865,34 @@ model Neighborhood {
   removerId  String?
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  districtId String
+  district   District @relation(fields: [districtId], references: [id])
+  address    Address[]
 
   @@map("Neighborhood")
 }
 
 model Address {
-  id            String @id @default(uuid())
-  macroRegionId String
-  macroRegion MacroRegional @relation(fields: [macroRegionId], references: [id])
-  houseId   Int
-  flatId    Int
-  homeId    Int
-  postCode  Int
-  geoLocation String
-  moreInfo    String
-  creatorId   String
-  editorId    String
-  removerId   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt    
+  id            String     @id @default(uuid())
+  houseNum      String
+  flatNum       Int
+  homeNum       String
+  postCode      Int
+  geoLocation   String
+  moreInfo      String
+  creatorId     String
+  editorId      String
+  removerId     String?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  continentId   String
+  continent     Continent  @relation(fields: [continentId], references: [id])
+  countryId     String
+  country       Country    @relation(fields: [countryId], references: [id])
+  regionId      String
+  region        Region     @relation(fields: [regionId], references: [id])
+  districtId    String
+  district      District   @relation(fields: [districtId], references: [id])
+  neighborhoodId      String
+  neighborhood        Neighborhood   @relation(fields: [neighborhoodId], references: [id])
 }

@@ -2,7 +2,6 @@ import { Neighborhood } from './entities/neighborhood.entity';
 import { PrismaService } from './../../../prisma/prisma.service';
 import { Injectable } from '@nestjs/common';
 import { CreateNeighborhoodDto } from './dto/create-neighborhood.dto';
-import { UpdateNeighborhoodDto } from './dto/update-neighborhood.dto';
 
 @Injectable()
 export class NeighborhoodService {
@@ -11,14 +10,16 @@ async  create(createNeighborhoodDto: CreateNeighborhoodDto) {
   const neighborhood = await this.prisma.neighborhood.create({
     data: { 
       name : createNeighborhoodDto.name, 
-      district : createNeighborhoodDto.districtId, 
+      districtId : createNeighborhoodDto.district, 
       nameuz: createNeighborhoodDto.nameuz,
       nameru: createNeighborhoodDto.nameru,
       creatorId: createNeighborhoodDto.creatorId,
       editorId: createNeighborhoodDto.editorId,
       removerId: createNeighborhoodDto.removerId,
     }
-  })
+  });
+
+  return neighborhood
   }
 
   async findAll(): Promise<Neighborhood>{
@@ -40,16 +41,16 @@ async  create(createNeighborhoodDto: CreateNeighborhoodDto) {
     }
  }
 
-async update(id: string, data: UpdateNeighborhoodDto): Promise<Neighborhood>{
-   try {
-      return await this.prisma.neighborhood.update({
-       where : {id} , 
-       data,
-      })
-   } catch (e) { 
-     throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
-   }
- }
+// async update(id: string, data: UpdateNeighborhoodDto): Promise<Neighborhood>{
+//    try {
+//       return await this.prisma.neighborhood.update({
+//        where : {id} , 
+//        data,
+//       })
+//    } catch (e) { 
+//      throw new Error(`Yangilanishda xatolik bor id : ${id} , xatolik ${e.message}`)
+//    }
+//  }
 
 async remove(id: string) {
     try {
