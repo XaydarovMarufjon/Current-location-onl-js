@@ -19,7 +19,7 @@ const findLocation = () => {
         .then(res => res.json())
         .then( data => {
           console.log(data);
-          status.innerHTML = `${data.countryName} , ${data.principalSubdivision  } , ${data.locality}`
+          status.innerHTML = `${data.countryName} , ${data.city  } , ${data.locality}`
           
         })
    
@@ -44,7 +44,7 @@ const findLocation = () => {
     
     findLocation()
      
-  }, 1000);
+  }, 20000);
   
   
   /// private  my code 
